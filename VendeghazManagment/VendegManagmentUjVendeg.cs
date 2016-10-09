@@ -10,17 +10,13 @@ using System.Windows.Forms;
 
 namespace VendeghazManagment
 {
-    public partial class Form1 : Form
+    public partial class VendegManagmentUjVendeg : Form
     {
-        public Form1()
+        public VendegManagmentUjVendeg()
         {
             InitializeComponent();
-        }
-
-        private void buttonVendegek_Click(object sender, EventArgs e)
-        {
-            VendegManagment vm = new VendegManagment();
-            vm.Show();
+            comboBoxOkmanyTipus.DataSource = Enum.GetValues(typeof(OkmanyTipus));
+            comboBoxNem.DataSource = Enum.GetValues(typeof(Nem));
         }
     }
 }

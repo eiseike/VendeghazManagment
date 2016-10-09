@@ -1,6 +1,6 @@
 ﻿namespace VendeghazManagment
 {
-    partial class Form1
+    partial class VendegManagment
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonVendegek = new System.Windows.Forms.Button();
+            this.buttonUjVendegHozzaadasa = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // buttonVendegek
+            // buttonUjVendegHozzaadasa
             // 
-            this.buttonVendegek.Location = new System.Drawing.Point(33, 40);
-            this.buttonVendegek.Name = "buttonVendegek";
-            this.buttonVendegek.Size = new System.Drawing.Size(160, 23);
-            this.buttonVendegek.TabIndex = 0;
-            this.buttonVendegek.Text = "Vendégek Managment";
-            this.buttonVendegek.UseVisualStyleBackColor = true;
-            this.buttonVendegek.Click += new System.EventHandler(this.buttonVendegek_Click);
+            this.buttonUjVendegHozzaadasa.Location = new System.Drawing.Point(13, 13);
+            this.buttonUjVendegHozzaadasa.Name = "buttonUjVendegHozzaadasa";
+            this.buttonUjVendegHozzaadasa.Size = new System.Drawing.Size(75, 23);
+            this.buttonUjVendegHozzaadasa.TabIndex = 0;
+            this.buttonUjVendegHozzaadasa.Text = "Új vendég hozzáadása";
+            this.buttonUjVendegHozzaadasa.UseVisualStyleBackColor = true;
+            this.buttonUjVendegHozzaadasa.Click += new System.EventHandler(this.buttonUjVendegHozzaadasa_Click);
             // 
-            // Form1
+            // VendegManagment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.buttonVendegek);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Controls.Add(this.buttonUjVendegHozzaadasa);
+            this.Name = "VendegManagment";
+            this.Text = "VendegManagment";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button buttonVendegek;
+        private System.Windows.Forms.Button buttonUjVendegHozzaadasa;
     }
 }
-

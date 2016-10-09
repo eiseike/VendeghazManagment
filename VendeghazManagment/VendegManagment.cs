@@ -10,17 +10,17 @@ using System.Windows.Forms;
 
 namespace VendeghazManagment
 {
-    public partial class Form1 : Form
+    public partial class VendegManagment : Form
     {
-        public Form1()
+        public VendegManagment()
         {
             InitializeComponent();
         }
 
-        private void buttonVendegek_Click(object sender, EventArgs e)
+        private void buttonUjVendegHozzaadasa_Click(object sender, EventArgs e)
         {
-            VendegManagment vm = new VendegManagment();
-            vm.Show();
+            VendegManagmentUjVendeg vendegManagmentUjVendeg = new VendegManagmentUjVendeg();
+            vendegManagmentUjVendeg.ShowDialog();
         }
     }
 }
