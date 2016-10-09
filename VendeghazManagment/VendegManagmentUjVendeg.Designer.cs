@@ -34,10 +34,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxNev = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxOkmanySzam = new System.Windows.Forms.TextBox();
             this.comboBoxOkmanyTipus = new System.Windows.Forms.ComboBox();
             this.comboBoxNem = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.buttonOK = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -92,15 +94,16 @@
             this.textBoxNev.Size = new System.Drawing.Size(121, 20);
             this.textBoxNev.TabIndex = 2;
             // 
-            // textBox4
+            // textBoxOkmanySzam
             // 
-            this.textBox4.Location = new System.Drawing.Point(137, 102);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(121, 20);
-            this.textBox4.TabIndex = 2;
+            this.textBoxOkmanySzam.Location = new System.Drawing.Point(137, 102);
+            this.textBoxOkmanySzam.Name = "textBoxOkmanySzam";
+            this.textBoxOkmanySzam.Size = new System.Drawing.Size(121, 20);
+            this.textBoxOkmanySzam.TabIndex = 2;
             // 
             // comboBoxOkmanyTipus
             // 
+            this.comboBoxOkmanyTipus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOkmanyTipus.FormattingEnabled = true;
             this.comboBoxOkmanyTipus.Location = new System.Drawing.Point(137, 73);
             this.comboBoxOkmanyTipus.Name = "comboBoxOkmanyTipus";
@@ -109,6 +112,7 @@
             // 
             // comboBoxNem
             // 
+            this.comboBoxNem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNem.FormattingEnabled = true;
             this.comboBoxNem.Location = new System.Drawing.Point(137, 44);
             this.comboBoxNem.Name = "comboBoxNem";
@@ -123,15 +127,38 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(121, 20);
             this.dateTimePicker1.TabIndex = 4;
             // 
+            // buttonOK
+            // 
+            this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.buttonOK.Location = new System.Drawing.Point(34, 171);
+            this.buttonOK.Name = "buttonOK";
+            this.buttonOK.Size = new System.Drawing.Size(75, 23);
+            this.buttonOK.TabIndex = 5;
+            this.buttonOK.Text = "Kész";
+            this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Location = new System.Drawing.Point(115, 171);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.TabIndex = 5;
+            this.buttonCancel.Text = "Mégsem";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            // 
             // VendegManagmentUjVendeg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(551, 387);
+            this.ClientSize = new System.Drawing.Size(274, 215);
+            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.comboBoxNem);
             this.Controls.Add(this.comboBoxOkmanyTipus);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBoxOkmanySzam);
             this.Controls.Add(this.textBoxNev);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -152,9 +179,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxNev;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxOkmanySzam;
         private System.Windows.Forms.ComboBox comboBoxOkmanyTipus;
         private System.Windows.Forms.ComboBox comboBoxNem;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button buttonOK;
+        private System.Windows.Forms.Button buttonCancel;
     }
 }
