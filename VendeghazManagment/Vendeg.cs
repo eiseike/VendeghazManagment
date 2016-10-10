@@ -9,13 +9,13 @@ namespace VendeghazManagment
     internal enum Nem
     {
         Férfi = 0,
-        Nő = 1
+        Nő
     }
 
     internal enum OkmanyTipus
     {
         Személyi = 1,
-        Útlevél = 2
+        Útlevél
     }
     class Vendeg
     {
@@ -98,6 +98,12 @@ namespace VendeghazManagment
             OkmanyTipus = okmanyTipus;
             OkmanyAzonosito = okmanyAzonosito;
             SzuletesiDatum = szuletesiDatum;
+        }
+
+        public override string ToString()
+        {
+            return Nev + Environment.NewLine + Nem + "(" + (int)Nem + ")"+ Environment.NewLine + OkmanyTipus + Environment.NewLine +  OkmanyAzonosito + Environment.NewLine 
+                + SzuletesiDatum;
         }
     }
 }

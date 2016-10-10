@@ -20,7 +20,18 @@ namespace VendeghazManagment
         private void buttonUjVendegHozzaadasa_Click(object sender, EventArgs e)
         {
             VendegManagmentUjVendeg vendegManagmentUjVendeg = new VendegManagmentUjVendeg();
-            vendegManagmentUjVendeg.ShowDialog();
+ 
+            if (vendegManagmentUjVendeg.ShowDialog() == DialogResult.OK)
+            {
+
+               //hozzadni az adatbazishoz
+
+              
+              MessageBox.Show(vendegManagmentUjVendeg.Tarolt.ToString(), "hi :)");
+
+               //refresh ha kinn vannak valahol az adatok
+
+            }
         }
     }
 }

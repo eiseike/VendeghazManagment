@@ -37,7 +37,7 @@
             this.textBoxOkmanySzam = new System.Windows.Forms.TextBox();
             this.comboBoxOkmanyTipus = new System.Windows.Forms.ComboBox();
             this.comboBoxNem = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerSzuletesiDatum = new System.Windows.Forms.DateTimePicker();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -119,13 +119,13 @@
             this.comboBoxNem.Size = new System.Drawing.Size(121, 21);
             this.comboBoxNem.TabIndex = 3;
             // 
-            // dateTimePicker1
+            // dateTimePickerSzuletesiDatum
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(137, 131);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(121, 20);
-            this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePickerSzuletesiDatum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerSzuletesiDatum.Location = new System.Drawing.Point(137, 131);
+            this.dateTimePickerSzuletesiDatum.Name = "dateTimePickerSzuletesiDatum";
+            this.dateTimePickerSzuletesiDatum.Size = new System.Drawing.Size(121, 20);
+            this.dateTimePickerSzuletesiDatum.TabIndex = 4;
             // 
             // buttonOK
             // 
@@ -155,7 +155,7 @@
             this.ClientSize = new System.Drawing.Size(274, 215);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePickerSzuletesiDatum);
             this.Controls.Add(this.comboBoxNem);
             this.Controls.Add(this.comboBoxOkmanyTipus);
             this.Controls.Add(this.textBoxOkmanySzam);
@@ -182,7 +182,7 @@
         private System.Windows.Forms.TextBox textBoxOkmanySzam;
         private System.Windows.Forms.ComboBox comboBoxOkmanyTipus;
         private System.Windows.Forms.ComboBox comboBoxNem;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerSzuletesiDatum;
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonCancel;
     }

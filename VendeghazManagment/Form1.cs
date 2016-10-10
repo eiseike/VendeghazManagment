@@ -19,16 +19,8 @@ namespace VendeghazManagment
 
         private void buttonVendegek_Click(object sender, EventArgs e)
         {
-            VendegManagment vm = new VendegManagment();
-            vm.Show();
-        }
-
-        // atmenetileg felugro ablak
-        //#TODO:vedd le
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            VendegManagmentUjVendeg vendegManagmentUjVendeg = new VendegManagmentUjVendeg();
-            vendegManagmentUjVendeg.ShowDialog();
+            VendegManagment vendegManagment = new VendegManagment();
+            vendegManagment.Show();
         }
     }
 }

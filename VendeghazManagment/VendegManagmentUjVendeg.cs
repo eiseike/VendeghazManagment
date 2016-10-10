@@ -62,7 +62,7 @@ namespace VendeghazManagment
                 }
                 else
                 {
-                 //   Tarolt=new Vendeg(textBoxNev.Text.Trim(), );
+                    _tarolt = new Vendeg(textBoxNev.Text.Trim(), (Nem)comboBoxNem.SelectedItem, (OkmanyTipus)comboBoxOkmanyTipus.SelectedItem, textBoxOkmanySzam.Text.Trim(), dateTimePickerSzuletesiDatum.Value );
                 }
             }
             else
