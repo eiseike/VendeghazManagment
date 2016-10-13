@@ -10,23 +10,33 @@ using System.Windows.Forms;
 
 namespace VendeghazManagment
 {
-    public partial class VendegManagment : Form
+    public partial class frmVendegManagment : Form
     {
-        public VendegManagment()
+        public frmVendegManagment()
         {
             InitializeComponent();
         }
 
         private void buttonUjVendegHozzaadasa_Click(object sender, EventArgs e)
         {
-            VendegManagmentUjVendeg vendegManagmentUjVendeg = new VendegManagmentUjVendeg();
- 
+            frmVendegManagmentUjVendeg vendegManagmentUjVendeg = new frmVendegManagmentUjVendeg();
+
             if (vendegManagmentUjVendeg.ShowDialog() == DialogResult.OK)
             {
 
-               //hozzadni az adatbazishoz
+                try
+                {
+                    //DBFeladatok.Save(vendegManagmentUjVendeg.Tarolt);
+                }
+                catch (Exception)
+                {
+                    
+                    throw;
+                }
+                
 
-              
+
+
               MessageBox.Show(vendegManagmentUjVendeg.Tarolt.ToString(), "hi :)");
 
                //refresh ha kinn vannak valahol az adatok

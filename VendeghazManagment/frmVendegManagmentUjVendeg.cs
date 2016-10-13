@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace VendeghazManagment
 {
-    public partial class VendegManagmentUjVendeg : Form
+    public partial class frmVendegManagmentUjVendeg : Form
     {
         private Vendeg _tarolt;
 
-        public VendegManagmentUjVendeg()
+        public frmVendegManagmentUjVendeg()
         {
             InitializeComponent();
             comboBoxOkmanyTipus.DataSource = Enum.GetValues(typeof(OkmanyTipus));

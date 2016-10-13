@@ -10,17 +10,27 @@ using System.Windows.Forms;
 
 namespace VendeghazManagment
 {
-    public partial class Form1 : Form
+    public partial class frmMain : Form
     {
-        public Form1()
+        private string connectionString;
+
+        public frmMain()
         {
             InitializeComponent();
+
+            listBox1.DisplayMember = "nev";
+            listBox1.ValueMember = "id";
+            listBox1.DataSource = DBFeladatok.SelectVendeg();
+
         }
 
         private void buttonVendegek_Click(object sender, EventArgs e)
         {
-            VendegManagment vendegManagment = new VendegManagment();
+
+            
+            frmVendegManagment vendegManagment = new frmVendegManagment();
             vendegManagment.Show();
         }
+ 
     }
 }

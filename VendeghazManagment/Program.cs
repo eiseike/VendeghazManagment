@@ -14,9 +14,11 @@ namespace VendeghazManagment
         [STAThread]
         static void Main()
         {
+
+           // AppDomain.CurrentDomain.SetData("DataDirectory",Environment.CurrentDirectory.Replace("\\bin\\debug",""));
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frmMain());
         }
     }
 }
