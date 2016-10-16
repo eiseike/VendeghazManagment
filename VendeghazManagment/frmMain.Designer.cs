@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.buttonVendegek = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // buttonVendegek
             // 
-            this.buttonVendegek.Location = new System.Drawing.Point(33, 40);
+            this.buttonVendegek.Location = new System.Drawing.Point(12, 12);
             this.buttonVendegek.Name = "buttonVendegek";
             this.buttonVendegek.Size = new System.Drawing.Size(160, 23);
             this.buttonVendegek.TabIndex = 0;
@@ -42,20 +41,11 @@
             this.buttonVendegek.UseVisualStyleBackColor = true;
             this.buttonVendegek.Click += new System.EventHandler(this.buttonVendegek_Click);
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(57, 118);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 95);
-            this.listBox1.TabIndex = 1;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.listBox1);
+            this.ClientSize = new System.Drawing.Size(904, 817);
             this.Controls.Add(this.buttonVendegek);
             this.Name = "frmMain";
             this.Text = "Form1";
@@ -66,7 +56,6 @@
         #endregion
 
         private System.Windows.Forms.Button buttonVendegek;
-        private System.Windows.Forms.ListBox listBox1;
     }
 }
 

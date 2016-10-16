@@ -17,11 +17,6 @@ namespace VendeghazManagment
         public frmMain()
         {
             InitializeComponent();
-
-            listBox1.DisplayMember = "nev";
-            listBox1.ValueMember = "id";
-            listBox1.DataSource = DBFeladatok.SelectVendeg();
-
         }
 
         private void buttonVendegek_Click(object sender, EventArgs e)
@@ -31,6 +26,5 @@ namespace VendeghazManagment
             frmVendegManagment vendegManagment = new frmVendegManagment();
             vendegManagment.Show();
         }
- 
     }
 }

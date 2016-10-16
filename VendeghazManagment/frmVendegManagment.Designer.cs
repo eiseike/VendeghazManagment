@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.buttonUjVendegHozzaadasa = new System.Windows.Forms.Button();
+            this.lstVendeg = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // buttonUjVendegHozzaadasa
@@ -41,13 +42,23 @@
             this.buttonUjVendegHozzaadasa.UseVisualStyleBackColor = true;
             this.buttonUjVendegHozzaadasa.Click += new System.EventHandler(this.buttonUjVendegHozzaadasa_Click);
             // 
-            // VendegManagment
+            // lstVendeg
+            // 
+            this.lstVendeg.FormattingEnabled = true;
+            this.lstVendeg.Location = new System.Drawing.Point(47, 70);
+            this.lstVendeg.Name = "lstVendeg";
+            this.lstVendeg.Size = new System.Drawing.Size(120, 95);
+            this.lstVendeg.TabIndex = 1;
+            this.lstVendeg.SelectedIndexChanged += new System.EventHandler(this.lstVendeg_SelectedIndexChanged);
+            // 
+            // frmVendegManagment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.lstVendeg);
             this.Controls.Add(this.buttonUjVendegHozzaadasa);
-            this.Name = "VendegManagment";
+            this.Name = "frmVendegManagment";
             this.Text = "VendegManagment";
             this.ResumeLayout(false);
 
@@ -56,5 +67,6 @@
         #endregion
 
         private System.Windows.Forms.Button buttonUjVendegHozzaadasa;
+        private System.Windows.Forms.ListBox lstVendeg;
     }
 }

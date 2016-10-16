@@ -10,25 +10,37 @@ using System.Windows.Forms;
 
 namespace VendeghazManagment
 {
-    public partial class frmVendegManagmentUjVendeg : Form
+    public partial class FrmVendegManagmentUjVendeg : Form
     {
         private Vendeg _tarolt;
 
-        public frmVendegManagmentUjVendeg()
+        private void initCtor()
         {
             InitializeComponent();
-            comboBoxOkmanyTipus.DataSource = Enum.GetValues(typeof(OkmanyTipus));
-            comboBoxNem.DataSource = Enum.GetValues(typeof(Nem));
+            cboOkmanyTipus.DataSource = Enum.GetValues(typeof(OkmanyTipus));
+            cboNem.DataSource = Enum.GetValues(typeof(Nem));
         }
 
-        //#TODO: Módósítás
+        public FrmVendegManagmentUjVendeg()
+        {
+            initCtor();
+        }
+
+        public FrmVendegManagmentUjVendeg(int vendegId)
+        {
+            initCtor();
+            dtpSzuletesiDatum.Enabled = false;
+            _tarolt = DBFeladatok.SelectVendeg(vendegId);
+            txtNev.Text = _tarolt.Nev;
+            txtOkmanyAzonosito.Text = _tarolt.OkmanyAzonosito;
+            cboNem.SelectedIndex =(int) _tarolt.Nem;
+            cboOkmanyTipus.SelectedIndex = (int) _tarolt.OkmanyTipus;
+        }
+
 
         internal Vendeg Tarolt
         {
-            get
-            {
-                return _tarolt;
-            }
+            get { return _tarolt; }
         }
 
         //Kisegítő funkció ami a bejövő hibaüzenetet hozzáfúzi a hibákhoz újsorral elválasztva
@@ -39,37 +51,40 @@ namespace VendeghazManagment
             error += szoveg;
         }
 
-        
+
         private void buttonOK_Click(object sender, EventArgs e)
         {
-
-            if (Tarolt == null)
+            var error = "";
+            if (txtNev.Text.Trim() == "")
             {
-                string error = "";
-                if (textBoxNev.Text.Trim() == "")
-                {
-                    addError(ref error, "Nem adott meg nevet!");
-                }
-                if (textBoxOkmanySzam.Text.Trim() == "")
-                {
-                    addError(ref error, "Nem adott meg okmányszámot!");
-                }
+                addError(ref error, "Nem adott meg nevet!");
+            }
+            if (txtOkmanyAzonosito.Text.Trim() == "")
+            {
+                addError(ref error, "Nem adott meg okmányszámot!");
+            }
 
-                if (error!="")
-                {
-                    MessageBox.Show(error, "Figyelmeztetés...", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    DialogResult = DialogResult.None;
-                }
-                else
-                {
-                    _tarolt = new Vendeg(textBoxNev.Text.Trim(), (Nem)comboBoxNem.SelectedItem, (OkmanyTipus)comboBoxOkmanyTipus.SelectedItem, textBoxOkmanySzam.Text.Trim(), dateTimePickerSzuletesiDatum.Value );
-                }
+            if (error != "")
+            {
+                MessageBox.Show(error, "Figyelmeztetés...", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DialogResult = DialogResult.None;
             }
             else
             {
-                throw new NotImplementedException("Vendeg Modositasa hol?");
+                if (Tarolt == null)
+                {
+                    _tarolt = new Vendeg(txtNev.Text.Trim(), (Nem) cboNem.SelectedItem,
+                        (OkmanyTipus) cboOkmanyTipus.SelectedItem, txtOkmanyAzonosito.Text.Trim(),
+                        dtpSzuletesiDatum.Value);
+                }
+                else
+                {
+                    _tarolt.Nev = txtNev.Text.Trim();
+                    _tarolt.Nem = (Nem) cboNem.SelectedItem;
+                    _tarolt.OkmanyTipus = (OkmanyTipus) cboOkmanyTipus.SelectedItem;
+                    _tarolt.OkmanyAzonosito = txtOkmanyAzonosito.Text.Trim();
+                }
             }
-
         }
     }
 }

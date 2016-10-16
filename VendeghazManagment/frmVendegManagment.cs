@@ -15,11 +15,15 @@ namespace VendeghazManagment
         public frmVendegManagment()
         {
             InitializeComponent();
+
+            lstVendeg.DataSource = DBFeladatok.VendegDataTable();
+            lstVendeg.DisplayMember = "nev";
+            lstVendeg.ValueMember = "id";
         }
 
         private void buttonUjVendegHozzaadasa_Click(object sender, EventArgs e)
         {
-            frmVendegManagmentUjVendeg vendegManagmentUjVendeg = new frmVendegManagmentUjVendeg();
+            FrmVendegManagmentUjVendeg vendegManagmentUjVendeg = new FrmVendegManagmentUjVendeg();
 
             if (vendegManagmentUjVendeg.ShowDialog() == DialogResult.OK)
             {
@@ -27,14 +31,41 @@ namespace VendeghazManagment
                 try
                 {
                     DBFeladatok.SaveVendeg(vendegManagmentUjVendeg.Tarolt);
+                    lstVendeg.DataSource = DBFeladatok.VendegDataTable();
                 }
                 catch (Exception ex)
                 {
                     EasyLog.LogMessageToFile(ex.Message);
                     throw ex;
                 }
-                
-               //refresh ha kinn vannak valahol az adatok
+
+                //refresh ha kinn vannak valahol az adatok
+
+            }
+        }
+
+        private void lstVendeg_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstVendeg.SelectedIndex != 0)
+            {
+                var vendegManagmentUjVendeg = new FrmVendegManagmentUjVendeg((int)lstVendeg.SelectedValue);
+
+                if (vendegManagmentUjVendeg.ShowDialog() == DialogResult.OK)
+                {
+
+                    try
+                    {
+                        DBFeladatok.UpdateVendeg(lstVendeg.SelectedIndex, vendegManagmentUjVendeg.Tarolt);
+                        lstVendeg.DataSource = DBFeladatok.VendegDataTable();
+                    }
+                    catch (Exception ex)
+                    {
+                        EasyLog.LogMessageToFile(ex.Message);
+                        throw ex;
+                    }
+
+                    //refresh ha kinn vannak valahol az adatok
+                }
 
             }
         }

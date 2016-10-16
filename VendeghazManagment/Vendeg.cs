@@ -6,18 +6,18 @@ namespace VendeghazManagment
     Nem nem;
     Enum.TryParse<Nem>(valamiKivalaszthato.SelectedValue.ToString(), out nem); 
     */
-    internal enum Nem
+    public enum Nem
     {
-        Férfi = 0,
+        Férfi,
         Nő
     }
 
-    internal enum OkmanyTipus
+    public enum OkmanyTipus
     {
-        Személyi = 1,
+        Személyi,
         Útlevél
     }
-    class Vendeg
+    public class Vendeg
     {
         private string _nev;
         private Nem _nem;
@@ -102,7 +102,7 @@ namespace VendeghazManagment
 
         public override string ToString()
         {
-            return Nev + Environment.NewLine + Nem + "(" + (int)Nem + ")"+ Environment.NewLine + OkmanyTipus + Environment.NewLine +  OkmanyAzonosito + Environment.NewLine 
+            return Nev + Environment.NewLine + Nem + "(" + (int)Nem + ")" + Environment.NewLine + OkmanyTipus + Environment.NewLine + OkmanyAzonosito + Environment.NewLine
                 + SzuletesiDatum;
         }
     }
