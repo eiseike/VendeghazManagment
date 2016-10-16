@@ -26,19 +26,14 @@ namespace VendeghazManagment
 
                 try
                 {
-                    //DBFeladatok.Save(vendegManagmentUjVendeg.Tarolt);
+                    DBFeladatok.SaveVendeg(vendegManagmentUjVendeg.Tarolt);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    
-                    throw;
+                    EasyLog.LogMessageToFile(ex.Message);
+                    throw ex;
                 }
                 
-
-
-
-              MessageBox.Show(vendegManagmentUjVendeg.Tarolt.ToString(), "hi :)");
-
                //refresh ha kinn vannak valahol az adatok
 
             }

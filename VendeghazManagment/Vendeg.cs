@@ -25,7 +25,6 @@ namespace VendeghazManagment
         private string _okmanyAzonosito;
         private DateTime _szuletesiDatum;
 
-
         public string Nev
         {
             get

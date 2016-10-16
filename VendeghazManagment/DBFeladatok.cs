@@ -20,41 +20,64 @@ namespace VendeghazManagment
 
         static SqlConnection connection = null;
 
-
-
         public static DataTable SelectVendeg()
         {
-            using (connection = new SqlConnection(connectionString))
-            using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM vendeg", connection))
             {
+
+                var vendegekDataTable = new DataTable();
+
                 try
                 {
-               
-                    DataTable vendegekDataTable = new DataTable();
-                    sqlDataAdapter.Fill(vendegekDataTable);
-
-                    return vendegekDataTable;
-
-                }
-                catch (Exception)
-                {
                     
-                    throw;
+                    connection = new SqlConnection(connectionString);
+                    var sqlDataAdapter = new SqlDataAdapter("SELECT * FROM vendeg", connection);
+
+                    sqlDataAdapter.Fill(vendegekDataTable);
+                 
                 }
-                
+                finally
+                {
+                    connection.Close();
+
+                }
+
+                return vendegekDataTable;
+
 
             }
 
-            //DBVendeg dbVendeg = new DBVendeg();
-            //dbVendeg.nem = (int)vendeg.Nem==1?true:false;
-            //dbVendeg.nev = vendeg.Nev;
-            //dbVendeg.okmany_azonosito = vendeg.OkmanyAzonosito;
-            //dbVendeg.okmany_tipus = (byte) vendeg.OkmanyTipus;
-            //dbVendeg.szuletesi_datum = vendeg.SzuletesiDatum;
+            
 
-            //DataClassesVendeghazManagmentDataContext dataClassesVendeghazManagmentDataContext = new DataClassesVendeghazManagmentDataContext();
-            //dataClassesVendeghazManagmentDataContext.DBVendegs.InsertOnSubmit(dbVendeg);
+        }
 
+        public static bool SaveVendeg(Vendeg vendeg)
+        {
+            try
+            {
+
+                connection = new SqlConnection(connectionString);
+                connection.Open();
+                var cmd = new SqlCommand("INSERT into vendeg (nev, nem, okmany_tipus, okmany_azonosito, szuletesi_datum) VALUES(@nev, @nem, @okmany_tipus, @okmany_azonosito, @szuletesi_datum)", connection);
+
+                cmd.Parameters.Add(new SqlParameter("nev", vendeg.Nev));
+                cmd.Parameters.Add(new SqlParameter("nem", (int)vendeg.Nem == 1 ? true : false));
+                cmd.Parameters.Add(new SqlParameter("okmany_tipus", (byte)vendeg.OkmanyTipus));
+                cmd.Parameters.Add(new SqlParameter("okmany_azonosito", vendeg.OkmanyAzonosito));
+                cmd.Parameters.Add(new SqlParameter("szuletesi_datum", vendeg.SzuletesiDatum));
+
+                EasyLog.LogMessageToFile(cmd.CommandText);
+             
+                cmd.ExecuteNonQuery();
+
+
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+
+            return true;
 
         }
     }
