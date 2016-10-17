@@ -86,10 +86,10 @@
     <Compile Include="frmVendegManagmentUjVendeg.Designer.cs">
       <DependentUpon>frmVendegManagmentUjVendeg.cs</DependentUpon>
     </Compile>
-    <Compile Include="VendeghazManagmentDatabaseDataSet.Designer.cs">
+    <Compile Include="VendeghazManagment.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>VendeghazManagmentDatabaseDataSet.xsd</DependentUpon>
+      <DependentUpon>VendeghazManagment.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -118,31 +118,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="VendeghazManagmentDatabaseDataSet.xsc">
-      <DependentUpon>VendeghazManagmentDatabaseDataSet.xsd</DependentUpon>
+    <None Include="VendeghazManagment.xsc">
+      <DependentUpon>VendeghazManagment.xsd</DependentUpon>
     </None>
-    <None Include="VendeghazManagmentDatabaseDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>VendeghazManagmentDatabaseDataSet.Designer.cs</LastGenOutput>
+    <None Include="VendeghazManagment.xsd">
       <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VendeghazManagment.Designer.cs</LastGenOutput>
     </None>
-    <None Include="VendeghazManagmentDatabaseDataSet.xss">
-      <DependentUpon>VendeghazManagmentDatabaseDataSet.xsd</DependentUpon>
+    <None Include="VendeghazManagment.xss">
+      <DependentUpon>VendeghazManagment.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="VendeghazManagmentDatabase.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="VendeghazManagmentDatabase_log.ldf">
-      <DependentUpon>VendeghazManagmentDatabase.mdf</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

@@ -12,8 +12,11 @@ namespace VendeghazManagment
 {
     public partial class FrmVendegManagmentUjVendeg : Form
     {
+
+        // a formban tarolt peldanya a letrehozando/modositando osztaly(ok)nak
         private Vendeg _tarolt;
 
+        //kozos initializacio
         private void initCtor()
         {
             InitializeComponent();
@@ -76,6 +79,8 @@ namespace VendeghazManagment
                     _tarolt = new Vendeg(txtNev.Text.Trim(), (Nem) cboNem.SelectedItem,
                         (OkmanyTipus) cboOkmanyTipus.SelectedItem, txtOkmanyAzonosito.Text.Trim(),
                         dtpSzuletesiDatum.Value);
+
+                    EasyLog.LogMessageToFile("New vendeg ="+_tarolt);
                 }
                 else
                 {
@@ -83,6 +88,8 @@ namespace VendeghazManagment
                     _tarolt.Nem = (Nem) cboNem.SelectedItem;
                     _tarolt.OkmanyTipus = (OkmanyTipus) cboOkmanyTipus.SelectedItem;
                     _tarolt.OkmanyAzonosito = txtOkmanyAzonosito.Text.Trim();
+
+                    EasyLog.LogMessageToFile("MOd vendeg = "+_tarolt);
                 }
             }
         }

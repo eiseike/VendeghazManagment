@@ -49,7 +49,7 @@
             this.lstVendeg.Name = "lstVendeg";
             this.lstVendeg.Size = new System.Drawing.Size(120, 95);
             this.lstVendeg.TabIndex = 1;
-            this.lstVendeg.SelectedIndexChanged += new System.EventHandler(this.lstVendeg_SelectedIndexChanged);
+            this.lstVendeg.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lstVendeg_Click);
             // 
             // frmVendegManagment
             // 

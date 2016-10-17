@@ -16,7 +16,7 @@ namespace VendeghazManagment
 
         static string connectionString =
             ConfigurationManager.ConnectionStrings[
-                "VendeghazManagment.Properties.Settings.VendeghazManagmentDatabaseConnectionString"].ConnectionString;
+                "VendeghazManagment.Properties.Settings.ConnectionString"].ConnectionString;
 
         static SqlConnection connection = null;
 
@@ -25,6 +25,7 @@ namespace VendeghazManagment
         public static Vendeg SelectVendeg(int id)
         {
 
+            EasyLog.LogMessageToFile("Selected vendeg is ="+id);
             SqlDataReader reader = null;
             try
             {
@@ -66,7 +67,7 @@ namespace VendeghazManagment
                 try
                 {
                     connection = new SqlConnection(connectionString);
-                    var sqlDataAdapter = new SqlDataAdapter("SELECT * FROM vendeg", connection);
+                    var sqlDataAdapter = new SqlDataAdapter("SELECT *,concat(id,' ',nev) fasz FROM vendeg", connection);
                     sqlDataAdapter.Fill(vendegekDataTable);
                 }
                 finally
@@ -83,6 +84,7 @@ namespace VendeghazManagment
                 connection = new SqlConnection(connectionString);
                 connection.Open();
                 EasyLog.LogMessageToFile("Update id="+id);
+                EasyLog.LogMessageToFile("Update vendeg=" + vendeg);
                 var cmd = new SqlCommand("UPDATE vendeg SET nev=@nev, nem=@nem, okmany_tipus=@okmany_tipus, okmany_azonosito=@okmany_azonosito, szuletesi_datum=@szuletesi_datum WHERE id =@id", connection);
                 cmd.Parameters.Add(new SqlParameter("id", id));
                 cmd.Parameters.Add(new SqlParameter("nev", vendeg.Nev));

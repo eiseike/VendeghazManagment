@@ -17,7 +17,7 @@ namespace VendeghazManagment
             InitializeComponent();
 
             lstVendeg.DataSource = DBFeladatok.VendegDataTable();
-            lstVendeg.DisplayMember = "nev";
+            lstVendeg.DisplayMember = "fasz";
             lstVendeg.ValueMember = "id";
         }
 
@@ -44,10 +44,14 @@ namespace VendeghazManagment
             }
         }
 
-        private void lstVendeg_SelectedIndexChanged(object sender, EventArgs e)
+        private void lstVendeg_Click(object sender, MouseEventArgs e)
         {
-            if (lstVendeg.SelectedIndex != 0)
+            if (lstVendeg.SelectedIndex != null)
             {
+
+                MessageBox.Show(((int)lstVendeg.SelectedValue).ToString());
+                
+
                 var vendegManagmentUjVendeg = new FrmVendegManagmentUjVendeg((int)lstVendeg.SelectedValue);
 
                 if (vendegManagmentUjVendeg.ShowDialog() == DialogResult.OK)
@@ -55,7 +59,7 @@ namespace VendeghazManagment
 
                     try
                     {
-                        DBFeladatok.UpdateVendeg(lstVendeg.SelectedIndex, vendegManagmentUjVendeg.Tarolt);
+                        DBFeladatok.UpdateVendeg((int)lstVendeg.SelectedValue, vendegManagmentUjVendeg.Tarolt);
                         lstVendeg.DataSource = DBFeladatok.VendegDataTable();
                     }
                     catch (Exception ex)
