@@ -67,7 +67,7 @@ namespace VendeghazManagment
                 try
                 {
                     connection = new SqlConnection(connectionString);
-                    var sqlDataAdapter = new SqlDataAdapter("SELECT *,concat(id,' ',nev) fasz FROM vendeg", connection);
+                    var sqlDataAdapter = new SqlDataAdapter("SELECT *,concat(nev,' ', szuletesi_datum) adatok FROM vendeg", connection);
                     sqlDataAdapter.Fill(vendegekDataTable);
                 }
                 finally
@@ -101,6 +101,27 @@ namespace VendeghazManagment
             }
             return true;
         }
+
+        
+        public static bool DeleteVendeg(int id)
+        {
+            try
+            {
+                connection = new SqlConnection(connectionString);
+                connection.Open();
+                var cmd = new SqlCommand("DELETE FROM vendeg WHERE id=@id", connection);
+
+                cmd.Parameters.Add(new SqlParameter("id", id));
+                EasyLog.LogMessageToFile(cmd.CommandText);
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return true;
+        }
+
 
         public static bool SaveVendeg(Vendeg vendeg)
         {

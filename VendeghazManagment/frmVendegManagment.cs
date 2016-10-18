@@ -17,11 +17,11 @@ namespace VendeghazManagment
             InitializeComponent();
 
             lstVendeg.DataSource = DBFeladatok.VendegDataTable();
-            lstVendeg.DisplayMember = "fasz";
+            lstVendeg.DisplayMember = "Adatok";
             lstVendeg.ValueMember = "id";
         }
 
-        private void buttonUjVendegHozzaadasa_Click(object sender, EventArgs e)
+        private void btnUjVendeg_Click(object sender, EventArgs e)
         {
             FrmVendegManagmentUjVendeg vendegManagmentUjVendeg = new FrmVendegManagmentUjVendeg();
 
@@ -44,13 +44,10 @@ namespace VendeghazManagment
             }
         }
 
-        private void lstVendeg_Click(object sender, MouseEventArgs e)
+        private void btnModVendeg_Click(object sender, EventArgs e)
         {
-            if (lstVendeg.SelectedIndex != null)
+            if (lstVendeg.SelectedValue != null)
             {
-
-                MessageBox.Show(((int)lstVendeg.SelectedValue).ToString());
-                
 
                 var vendegManagmentUjVendeg = new FrmVendegManagmentUjVendeg((int)lstVendeg.SelectedValue);
 
@@ -71,6 +68,34 @@ namespace VendeghazManagment
                     //refresh ha kinn vannak valahol az adatok
                 }
 
+            }
+        }
+
+        private void lstVendeg_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            btnModVendeg_Click(sender, e);
+        }
+
+        private void btnTorVendeg_Click(object sender, EventArgs e)
+        {
+            if (lstVendeg.SelectedValue != null)
+            {
+                if (
+                    MessageBox.Show("Biztos benne?", "Figyelmeztetés", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.OK)
+                {
+                    try
+                    {
+                        DBFeladatok.DeleteVendeg((int)lstVendeg.SelectedValue);
+                        lstVendeg.DataSource = DBFeladatok.VendegDataTable();
+                    }
+                    catch (Exception ex)
+                    {
+                        EasyLog.LogMessageToFile(ex.Message);
+                        throw ex;
+                    }
+                
+                    
+                }
             }
         }
     }

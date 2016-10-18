@@ -32,7 +32,8 @@ namespace VendeghazManagment
         public FrmVendegManagmentUjVendeg(int vendegId)
         {
             initCtor();
-            dtpSzuletesiDatum.Enabled = false;
+            //dtpSzuletesiDatum.Enabled = false;
+            //cboNem.Enabled = false;
             _tarolt = DBFeladatok.SelectVendeg(vendegId);
             txtNev.Text = _tarolt.Nev;
             txtOkmanyAzonosito.Text = _tarolt.OkmanyAzonosito;
