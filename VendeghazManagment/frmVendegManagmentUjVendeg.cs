@@ -20,8 +20,9 @@ namespace VendeghazManagment
         private void initCtor()
         {
             InitializeComponent();
-            cboOkmanyTipus.DataSource = Enum.GetValues(typeof(OkmanyTipus));
-            cboNem.DataSource = Enum.GetValues(typeof(Nem));
+            cboVendegOkmanyTipus.DataSource = Enum.GetValues(typeof(VendegOkmanyTipus));
+            cboVendegNem.DataSource = Enum.GetValues(typeof(VendegNem));
+            this.CancelButton = btnCancel;
         }
 
         public FrmVendegManagmentUjVendeg()
@@ -32,13 +33,13 @@ namespace VendeghazManagment
         public FrmVendegManagmentUjVendeg(int vendegId)
         {
             initCtor();
-            //dtpSzuletesiDatum.Enabled = false;
-            //cboNem.Enabled = false;
+            //dtpVendegSzuletesiDatum.Enabled = false;
+            //cboVendegNem.Enabled = false;
             _tarolt = DBFeladatok.SelectVendeg(vendegId);
-            txtNev.Text = _tarolt.Nev;
-            txtOkmanyAzonosito.Text = _tarolt.OkmanyAzonosito;
-            cboNem.SelectedIndex =(int) _tarolt.Nem;
-            cboOkmanyTipus.SelectedIndex = (int) _tarolt.OkmanyTipus;
+            txtVendegNev.Text = _tarolt.Nev;
+            txtVendegOkmanyAzonosito.Text = _tarolt.OkmanyAzonosito;
+            cboVendegNem.SelectedIndex =(int) _tarolt.VendegNem;
+            cboVendegOkmanyTipus.SelectedIndex = (int) _tarolt.VendegOkmanyTipus;
         }
 
 
@@ -59,13 +60,13 @@ namespace VendeghazManagment
         private void buttonOK_Click(object sender, EventArgs e)
         {
             var error = "";
-            if (txtNev.Text.Trim() == "")
+            if (txtVendegNev.Text.Trim() == "")
             {
-                addError(ref error, "Nem adott meg nevet!");
+                addError(ref error, "VendegNem adott meg nevet!");
             }
-            if (txtOkmanyAzonosito.Text.Trim() == "")
+            if (txtVendegOkmanyAzonosito.Text.Trim() == "")
             {
-                addError(ref error, "Nem adott meg okmányszámot!");
+                addError(ref error, "VendegNem adott meg okmányszámot!");
             }
 
             if (error != "")
@@ -77,18 +78,18 @@ namespace VendeghazManagment
             {
                 if (Tarolt == null)
                 {
-                    _tarolt = new Vendeg(txtNev.Text.Trim(), (Nem) cboNem.SelectedItem,
-                        (OkmanyTipus) cboOkmanyTipus.SelectedItem, txtOkmanyAzonosito.Text.Trim(),
-                        dtpSzuletesiDatum.Value);
+                    _tarolt = new Vendeg(txtVendegNev.Text.Trim(), (VendegNem) cboVendegNem.SelectedItem,
+                        (VendegOkmanyTipus) cboVendegOkmanyTipus.SelectedItem, txtVendegOkmanyAzonosito.Text.Trim(),
+                        dtpVendegSzuletesiDatum.Value);
 
                     EasyLog.LogMessageToFile("New vendeg ="+_tarolt);
                 }
                 else
                 {
-                    _tarolt.Nev = txtNev.Text.Trim();
-                    _tarolt.Nem = (Nem) cboNem.SelectedItem;
-                    _tarolt.OkmanyTipus = (OkmanyTipus) cboOkmanyTipus.SelectedItem;
-                    _tarolt.OkmanyAzonosito = txtOkmanyAzonosito.Text.Trim();
+                    _tarolt.Nev = txtVendegNev.Text.Trim();
+                    _tarolt.VendegNem = (VendegNem) cboVendegNem.SelectedItem;
+                    _tarolt.VendegOkmanyTipus = (VendegOkmanyTipus) cboVendegOkmanyTipus.SelectedItem;
+                    _tarolt.OkmanyAzonosito = txtVendegOkmanyAzonosito.Text.Trim();
 
                     EasyLog.LogMessageToFile("MOd vendeg = "+_tarolt);
                 }

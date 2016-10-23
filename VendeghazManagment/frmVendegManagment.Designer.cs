@@ -1,6 +1,6 @@
 ﻿namespace VendeghazManagment
 {
-    partial class frmVendegManagment
+    partial class FrmVendegManagment
     {
         /// <summary>
         /// Required designer variable.

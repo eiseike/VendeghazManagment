@@ -3,25 +3,15 @@
 namespace VendeghazManagment
 {
     /*
-    Nem nem;
-    Enum.TryParse<Nem>(valamiKivalaszthato.SelectedValue.ToString(), out nem); 
+    VendegNem vendegNem;
+    Enum.TryParse<VendegNem>(valamiKivalaszthato.SelectedValue.ToString(), out vendegNem); 
     */
-    public enum Nem
-    {
-        Férfi,
-        Nő
-    }
-
-    public enum OkmanyTipus
-    {
-        Személyi,
-        Útlevél
-    }
+  
     public class Vendeg
     {
         private string _nev;
-        private Nem _nem;
-        private OkmanyTipus _okmanyTipus;
+        private VendegNem _vendegNem;
+        private VendegOkmanyTipus _vendegOkmanyTipus;
         private string _okmanyAzonosito;
         private DateTime _szuletesiDatum;
 
@@ -38,29 +28,29 @@ namespace VendeghazManagment
             }
         }
 
-        public Nem Nem
+        public VendegNem VendegNem
         {
             get
             {
-                return _nem;
+                return _vendegNem;
             }
 
             set
             {
-                _nem = value;
+                _vendegNem = value;
             }
         }
 
-        public OkmanyTipus OkmanyTipus
+        public VendegOkmanyTipus VendegOkmanyTipus
         {
             get
             {
-                return _okmanyTipus;
+                return _vendegOkmanyTipus;
             }
 
             set
             {
-                _okmanyTipus = value;
+                _vendegOkmanyTipus = value;
             }
         }
 
@@ -91,18 +81,18 @@ namespace VendeghazManagment
         }
 
 
-        public Vendeg(string nev, Nem nem, OkmanyTipus okmanyTipus, string okmanyAzonosito, DateTime szuletesiDatum)
+        public Vendeg(string nev, VendegNem vendegNem, VendegOkmanyTipus vendegOkmanyTipus, string okmanyAzonosito, DateTime szuletesiDatum)
         {
             Nev = nev;
-            Nem = nem;
-            OkmanyTipus = okmanyTipus;
+            VendegNem = vendegNem;
+            VendegOkmanyTipus = vendegOkmanyTipus;
             OkmanyAzonosito = okmanyAzonosito;
             SzuletesiDatum = szuletesiDatum;
         }
 
         public override string ToString()
         {
-            return Nev + Environment.NewLine + Nem + "(" + (int)Nem + ")" + Environment.NewLine + OkmanyTipus + Environment.NewLine + OkmanyAzonosito + Environment.NewLine
+            return Nev + Environment.NewLine + VendegNem + "(" + (int)VendegNem + ")" + Environment.NewLine + VendegOkmanyTipus + Environment.NewLine + OkmanyAzonosito + Environment.NewLine
                 + SzuletesiDatum;
         }
     }

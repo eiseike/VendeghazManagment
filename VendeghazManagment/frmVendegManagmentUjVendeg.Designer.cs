@@ -33,11 +33,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtNev = new System.Windows.Forms.TextBox();
-            this.txtOkmanyAzonosito = new System.Windows.Forms.TextBox();
-            this.cboOkmanyTipus = new System.Windows.Forms.ComboBox();
-            this.cboNem = new System.Windows.Forms.ComboBox();
-            this.dtpSzuletesiDatum = new System.Windows.Forms.DateTimePicker();
+            this.txtVendegNev = new System.Windows.Forms.TextBox();
+            this.txtVendegOkmanyAzonosito = new System.Windows.Forms.TextBox();
+            this.cboVendegOkmanyTipus = new System.Windows.Forms.ComboBox();
+            this.cboVendegNem = new System.Windows.Forms.ComboBox();
+            this.dtpVendegSzuletesiDatum = new System.Windows.Forms.DateTimePicker();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -87,45 +87,45 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "Születési dátum:";
             // 
-            // txtNev
+            // txtVendegNev
             // 
-            this.txtNev.Location = new System.Drawing.Point(137, 15);
-            this.txtNev.Name = "txtNev";
-            this.txtNev.Size = new System.Drawing.Size(121, 20);
-            this.txtNev.TabIndex = 0;
+            this.txtVendegNev.Location = new System.Drawing.Point(137, 15);
+            this.txtVendegNev.Name = "txtVendegNev";
+            this.txtVendegNev.Size = new System.Drawing.Size(121, 20);
+            this.txtVendegNev.TabIndex = 0;
             // 
-            // txtOkmanyAzonosito
+            // txtVendegOkmanyAzonosito
             // 
-            this.txtOkmanyAzonosito.Location = new System.Drawing.Point(137, 102);
-            this.txtOkmanyAzonosito.Name = "txtOkmanyAzonosito";
-            this.txtOkmanyAzonosito.Size = new System.Drawing.Size(121, 20);
-            this.txtOkmanyAzonosito.TabIndex = 3;
+            this.txtVendegOkmanyAzonosito.Location = new System.Drawing.Point(137, 102);
+            this.txtVendegOkmanyAzonosito.Name = "txtVendegOkmanyAzonosito";
+            this.txtVendegOkmanyAzonosito.Size = new System.Drawing.Size(121, 20);
+            this.txtVendegOkmanyAzonosito.TabIndex = 3;
             // 
-            // cboOkmanyTipus
+            // cboVendegOkmanyTipus
             // 
-            this.cboOkmanyTipus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboOkmanyTipus.FormattingEnabled = true;
-            this.cboOkmanyTipus.Location = new System.Drawing.Point(137, 73);
-            this.cboOkmanyTipus.Name = "cboOkmanyTipus";
-            this.cboOkmanyTipus.Size = new System.Drawing.Size(121, 21);
-            this.cboOkmanyTipus.TabIndex = 2;
+            this.cboVendegOkmanyTipus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboVendegOkmanyTipus.FormattingEnabled = true;
+            this.cboVendegOkmanyTipus.Location = new System.Drawing.Point(137, 73);
+            this.cboVendegOkmanyTipus.Name = "cboVendegOkmanyTipus";
+            this.cboVendegOkmanyTipus.Size = new System.Drawing.Size(121, 21);
+            this.cboVendegOkmanyTipus.TabIndex = 2;
             // 
-            // cboNem
+            // cboVendegNem
             // 
-            this.cboNem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboNem.FormattingEnabled = true;
-            this.cboNem.Location = new System.Drawing.Point(137, 44);
-            this.cboNem.Name = "cboNem";
-            this.cboNem.Size = new System.Drawing.Size(121, 21);
-            this.cboNem.TabIndex = 1;
+            this.cboVendegNem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboVendegNem.FormattingEnabled = true;
+            this.cboVendegNem.Location = new System.Drawing.Point(137, 44);
+            this.cboVendegNem.Name = "cboVendegNem";
+            this.cboVendegNem.Size = new System.Drawing.Size(121, 21);
+            this.cboVendegNem.TabIndex = 1;
             // 
-            // dtpSzuletesiDatum
+            // dtpVendegSzuletesiDatum
             // 
-            this.dtpSzuletesiDatum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpSzuletesiDatum.Location = new System.Drawing.Point(137, 131);
-            this.dtpSzuletesiDatum.Name = "dtpSzuletesiDatum";
-            this.dtpSzuletesiDatum.Size = new System.Drawing.Size(121, 20);
-            this.dtpSzuletesiDatum.TabIndex = 4;
+            this.dtpVendegSzuletesiDatum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpVendegSzuletesiDatum.Location = new System.Drawing.Point(137, 131);
+            this.dtpVendegSzuletesiDatum.Name = "dtpVendegSzuletesiDatum";
+            this.dtpVendegSzuletesiDatum.Size = new System.Drawing.Size(121, 20);
+            this.dtpVendegSzuletesiDatum.TabIndex = 4;
             // 
             // btnOK
             // 
@@ -155,11 +155,11 @@
             this.ClientSize = new System.Drawing.Size(274, 215);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.dtpSzuletesiDatum);
-            this.Controls.Add(this.cboNem);
-            this.Controls.Add(this.cboOkmanyTipus);
-            this.Controls.Add(this.txtOkmanyAzonosito);
-            this.Controls.Add(this.txtNev);
+            this.Controls.Add(this.dtpVendegSzuletesiDatum);
+            this.Controls.Add(this.cboVendegNem);
+            this.Controls.Add(this.cboVendegOkmanyTipus);
+            this.Controls.Add(this.txtVendegOkmanyAzonosito);
+            this.Controls.Add(this.txtVendegNev);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -178,11 +178,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtNev;
-        private System.Windows.Forms.TextBox txtOkmanyAzonosito;
-        private System.Windows.Forms.ComboBox cboOkmanyTipus;
-        private System.Windows.Forms.ComboBox cboNem;
-        private System.Windows.Forms.DateTimePicker dtpSzuletesiDatum;
+        private System.Windows.Forms.TextBox txtVendegNev;
+        private System.Windows.Forms.TextBox txtVendegOkmanyAzonosito;
+        private System.Windows.Forms.ComboBox cboVendegOkmanyTipus;
+        private System.Windows.Forms.ComboBox cboVendegNem;
+        private System.Windows.Forms.DateTimePicker dtpVendegSzuletesiDatum;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
     }

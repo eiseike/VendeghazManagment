@@ -46,8 +46,8 @@ namespace VendeghazManagment
                 
                 return new Vendeg(
                     reader["nev"].ToString(),
-                    (Nem)int.Parse(reader["nem"].ToString()),
-                    (OkmanyTipus)int.Parse(reader["okmany_tipus"].ToString()),
+                    (VendegNem)int.Parse(reader["nem"].ToString()),
+                    (VendegOkmanyTipus)int.Parse(reader["okmany_tipus"].ToString()),
                     reader["okmany_azonosito"].ToString(),
                     reader.GetDateTime(reader.GetOrdinal("szuletesi_datum"))
                );
@@ -88,8 +88,8 @@ namespace VendeghazManagment
                 var cmd = new SqlCommand("UPDATE vendeg SET nev=@nev, nem=@nem, okmany_tipus=@okmany_tipus, okmany_azonosito=@okmany_azonosito, szuletesi_datum=@szuletesi_datum WHERE id =@id", connection);
                 cmd.Parameters.Add(new SqlParameter("id", id));
                 cmd.Parameters.Add(new SqlParameter("nev", vendeg.Nev));
-                cmd.Parameters.Add(new SqlParameter("nem", (byte)vendeg.Nem));
-                cmd.Parameters.Add(new SqlParameter("okmany_tipus", (byte)vendeg.OkmanyTipus));
+                cmd.Parameters.Add(new SqlParameter("nem", (byte)vendeg.VendegNem));
+                cmd.Parameters.Add(new SqlParameter("okmany_tipus", (byte)vendeg.VendegOkmanyTipus));
                 cmd.Parameters.Add(new SqlParameter("okmany_azonosito", vendeg.OkmanyAzonosito));
                 cmd.Parameters.Add(new SqlParameter("szuletesi_datum", vendeg.SzuletesiDatum));
                 EasyLog.LogMessageToFile(cmd.CommandText);
@@ -132,8 +132,8 @@ namespace VendeghazManagment
                 var cmd = new SqlCommand("INSERT into vendeg (nev, nem, okmany_tipus, okmany_azonosito, szuletesi_datum) VALUES(@nev, @nem, @okmany_tipus, @okmany_azonosito, @szuletesi_datum)", connection);
 
                 cmd.Parameters.Add(new SqlParameter("nev", vendeg.Nev));
-                cmd.Parameters.Add(new SqlParameter("nem", (byte)vendeg.Nem));
-                cmd.Parameters.Add(new SqlParameter("okmany_tipus", (byte)vendeg.OkmanyTipus));
+                cmd.Parameters.Add(new SqlParameter("nem", (byte)vendeg.VendegNem));
+                cmd.Parameters.Add(new SqlParameter("okmany_tipus", (byte)vendeg.VendegOkmanyTipus));
                 cmd.Parameters.Add(new SqlParameter("okmany_azonosito", vendeg.OkmanyAzonosito));
                 cmd.Parameters.Add(new SqlParameter("szuletesi_datum", vendeg.SzuletesiDatum));
                 EasyLog.LogMessageToFile(cmd.CommandText);

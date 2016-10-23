@@ -1,6 +1,6 @@
 ﻿namespace VendeghazManagment
 {
-    partial class frmMain
+    partial class FrmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -28,26 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonVendegek = new System.Windows.Forms.Button();
+            this.btnVendegek = new System.Windows.Forms.Button();
+            this.btnSzobak = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // buttonVendegek
+            // btnVendegek
             // 
-            this.buttonVendegek.Location = new System.Drawing.Point(12, 12);
-            this.buttonVendegek.Name = "buttonVendegek";
-            this.buttonVendegek.Size = new System.Drawing.Size(160, 23);
-            this.buttonVendegek.TabIndex = 0;
-            this.buttonVendegek.Text = "Vendégek Managment";
-            this.buttonVendegek.UseVisualStyleBackColor = true;
-            this.buttonVendegek.Click += new System.EventHandler(this.buttonVendegek_Click);
+            this.btnVendegek.Location = new System.Drawing.Point(12, 12);
+            this.btnVendegek.Name = "btnVendegek";
+            this.btnVendegek.Size = new System.Drawing.Size(160, 23);
+            this.btnVendegek.TabIndex = 0;
+            this.btnVendegek.Text = "Vendégek Managment";
+            this.btnVendegek.UseVisualStyleBackColor = true;
+            this.btnVendegek.Click += new System.EventHandler(this.btnVendegek_Click);
             // 
-            // frmMain
+            // btnSzobak
+            // 
+            this.btnSzobak.Location = new System.Drawing.Point(178, 12);
+            this.btnSzobak.Name = "btnSzobak";
+            this.btnSzobak.Size = new System.Drawing.Size(160, 23);
+            this.btnSzobak.TabIndex = 0;
+            this.btnSzobak.Text = "Szobák Managment";
+            this.btnSzobak.UseVisualStyleBackColor = true;
+            this.btnSzobak.Click += new System.EventHandler(this.btnSzobak_Click);
+            // 
+            // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 817);
-            this.Controls.Add(this.buttonVendegek);
-            this.Name = "frmMain";
+            this.Controls.Add(this.btnSzobak);
+            this.Controls.Add(this.btnVendegek);
+            this.Name = "FrmMain";
             this.Text = "Form1";
             this.ResumeLayout(false);
 
@@ -55,7 +67,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonVendegek;
+        private System.Windows.Forms.Button btnVendegek;
+        private System.Windows.Forms.Button btnSzobak;
     }
 }
 

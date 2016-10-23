@@ -18,7 +18,7 @@ namespace VendeghazManagment
            // AppDomain.CurrentDomain.SetData("DataDirectory",Environment.CurrentDirectory.Replace("\\bin\\debug",""));
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            Application.Run(new FrmMain());
         }
     }
 }

@@ -65,44 +65,54 @@
   <ItemGroup>
     <Compile Include="DBFeladatok.cs" />
     <Compile Include="EasyLog.cs" />
-    <Compile Include="fmtSzobaManagment.cs">
+    <Compile Include="Enumok.cs" />
+    <Compile Include="FrmSzobaManagment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fmtSzobaManagment.Designer.cs">
-      <DependentUpon>fmtSzobaManagment.cs</DependentUpon>
+    <Compile Include="FrmSzobaManagment.Designer.cs">
+      <DependentUpon>FrmSzobaManagment.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSzobaManagmentUjSzoba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSzobaManagmentUjSzoba.Designer.cs">
+      <DependentUpon>FrmSzobaManagmentUjSzoba.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Szoba.cs" />
     <Compile Include="Vendeg.cs" />
-    <Compile Include="frmVendegManagment.cs">
+    <Compile Include="FrmVendegManagment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVendegManagment.Designer.cs">
-      <DependentUpon>frmVendegManagment.cs</DependentUpon>
+    <Compile Include="FrmVendegManagment.Designer.cs">
+      <DependentUpon>FrmVendegManagment.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVendegManagmentUjVendeg.cs">
+    <Compile Include="FrmVendegManagmentUjVendeg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVendegManagmentUjVendeg.Designer.cs">
-      <DependentUpon>frmVendegManagmentUjVendeg.cs</DependentUpon>
+    <Compile Include="FrmVendegManagmentUjVendeg.Designer.cs">
+      <DependentUpon>FrmVendegManagmentUjVendeg.cs</DependentUpon>
     </Compile>
     <Compile Include="VendeghazManagment.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>VendeghazManagment.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="fmtSzobaManagment.resx">
-      <DependentUpon>fmtSzobaManagment.cs</DependentUpon>
+    <EmbeddedResource Include="FrmSzobaManagment.resx">
+      <DependentUpon>FrmSzobaManagment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSzobaManagmentUjSzoba.resx">
+      <DependentUpon>FrmSzobaManagmentUjSzoba.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -113,11 +123,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmVendegManagment.resx">
-      <DependentUpon>frmVendegManagment.cs</DependentUpon>
+    <EmbeddedResource Include="FrmVendegManagment.resx">
+      <DependentUpon>FrmVendegManagment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmVendegManagmentUjVendeg.resx">
-      <DependentUpon>frmVendegManagmentUjVendeg.cs</DependentUpon>
+    <EmbeddedResource Include="FrmVendegManagmentUjVendeg.resx">
+      <DependentUpon>FrmVendegManagmentUjVendeg.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

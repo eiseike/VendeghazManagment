@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace VendeghazManagment
 {
-    public partial class frmVendegManagment : Form
+    public partial class FrmVendegManagment : Form
     {
-        public frmVendegManagment()
+        public FrmVendegManagment()
         {
             InitializeComponent();
 

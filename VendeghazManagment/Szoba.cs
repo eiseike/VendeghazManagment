@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace VendeghazManagment
 {
+   
     class Szoba
     {
         private string _nev;

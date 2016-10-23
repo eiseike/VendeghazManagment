@@ -318,7 +318,7 @@ namespace VendeghazManagment {
             
             private global::System.Data.DataColumn columnnev;
             
-            private global::System.Data.DataColumn columnnem;
+            private global::System.Data.DataColumn columnvendegNem;
             
             private global::System.Data.DataColumn columnokmany_tipus;
             
@@ -377,9 +377,9 @@ namespace VendeghazManagment {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn nemColumn {
+            public global::System.Data.DataColumn vendegNemColumn {
                 get {
-                    return this.columnnem;
+                    return this.columnvendegNem;
                 }
             }
             
@@ -444,12 +444,12 @@ namespace VendeghazManagment {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public vendegRow AddvendegRow(string nev, byte nem, byte okmany_tipus, string okmany_azonosito, System.DateTime szuletesi_datum) {
+            public vendegRow AddvendegRow(string nev, byte vendegNem, byte okmany_tipus, string okmany_azonosito, System.DateTime szuletesi_datum) {
                 vendegRow rowvendegRow = ((vendegRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         nev,
-                        nem,
+                        vendegNem,
                         okmany_tipus,
                         okmany_azonosito,
                         szuletesi_datum};
@@ -484,7 +484,7 @@ namespace VendeghazManagment {
             internal void InitVars() {
                 this.columnid = base.Columns["id"];
                 this.columnnev = base.Columns["nev"];
-                this.columnnem = base.Columns["nem"];
+                this.columnvendegNem = base.Columns["vendegNem"];
                 this.columnokmany_tipus = base.Columns["okmany_tipus"];
                 this.columnokmany_azonosito = base.Columns["okmany_azonosito"];
                 this.columnszuletesi_datum = base.Columns["szuletesi_datum"];
@@ -497,8 +497,8 @@ namespace VendeghazManagment {
                 base.Columns.Add(this.columnid);
                 this.columnnev = new global::System.Data.DataColumn("nev", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnev);
-                this.columnnem = new global::System.Data.DataColumn("nem", typeof(byte), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnem);
+                this.columnvendegNem = new global::System.Data.DataColumn("vendegNem", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvendegNem);
                 this.columnokmany_tipus = new global::System.Data.DataColumn("okmany_tipus", typeof(byte), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnokmany_tipus);
                 this.columnokmany_azonosito = new global::System.Data.DataColumn("okmany_azonosito", typeof(string), null, global::System.Data.MappingType.Element);
@@ -515,7 +515,7 @@ namespace VendeghazManagment {
                 this.columnid.Unique = true;
                 this.columnnev.AllowDBNull = false;
                 this.columnnev.MaxLength = 255;
-                this.columnnem.AllowDBNull = false;
+                this.columnvendegNem.AllowDBNull = false;
                 this.columnokmany_tipus.AllowDBNull = false;
                 this.columnokmany_azonosito.AllowDBNull = false;
                 this.columnokmany_azonosito.MaxLength = 20;
@@ -656,7 +656,7 @@ namespace VendeghazManagment {
             
             private global::System.Data.DataColumn columnnev;
             
-            private global::System.Data.DataColumn columnemelet;
+            private global::System.Data.DataColumn columvendegNemelet;
             
             private global::System.Data.DataColumn columnfelnott_hely;
             
@@ -719,7 +719,7 @@ namespace VendeghazManagment {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn emeletColumn {
                 get {
-                    return this.columnemelet;
+                    return this.columvendegNemelet;
                 }
             }
             
@@ -833,7 +833,7 @@ namespace VendeghazManagment {
             internal void InitVars() {
                 this.columnid = base.Columns["id"];
                 this.columnnev = base.Columns["nev"];
-                this.columnemelet = base.Columns["emelet"];
+                this.columvendegNemelet = base.Columns["emelet"];
                 this.columnfelnott_hely = base.Columns["felnott_hely"];
                 this.columngyermek_hely = base.Columns["gyermek_hely"];
                 this.columnkiadhato = base.Columns["kiadhato"];
@@ -847,8 +847,10 @@ namespace VendeghazManagment {
                 base.Columns.Add(this.columnid);
                 this.columnnev = new global::System.Data.DataColumn("nev", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnev);
-                this.columnemelet = new global::System.Data.DataColumn("emelet", typeof(byte), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnemelet);
+                this.columvendegNemelet = new global::System.Data.DataColumn("emelet", typeof(byte), null, global::System.Data.MappingType.Element);
+                this.columvendegNemelet.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columvendegNemelet");
+                this.columvendegNemelet.ExtendedProperties.Add("Generator_UserColumnName", "emelet");
+                base.Columns.Add(this.columvendegNemelet);
                 this.columnfelnott_hely = new global::System.Data.DataColumn("felnott_hely", typeof(byte), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfelnott_hely);
                 this.columngyermek_hely = new global::System.Data.DataColumn("gyermek_hely", typeof(byte), null, global::System.Data.MappingType.Element);
@@ -867,7 +869,7 @@ namespace VendeghazManagment {
                 this.columnid.Unique = true;
                 this.columnnev.AllowDBNull = false;
                 this.columnnev.MaxLength = 255;
-                this.columnemelet.AllowDBNull = false;
+                this.columvendegNemelet.AllowDBNull = false;
                 this.columnfelnott_hely.AllowDBNull = false;
                 this.columngyermek_hely.AllowDBNull = false;
                 this.columnkiadhato.AllowDBNull = false;
@@ -1036,12 +1038,12 @@ namespace VendeghazManagment {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public byte nem {
+            public byte vendegNem {
                 get {
-                    return ((byte)(this[this.tablevendeg.nemColumn]));
+                    return ((byte)(this[this.tablevendeg.vendegNemColumn]));
                 }
                 set {
-                    this[this.tablevendeg.nemColumn] = value;
+                    this[this.tablevendeg.vendegNemColumn] = value;
                 }
             }
             
@@ -1400,45 +1402,45 @@ namespace VendeghazManagment.VendeghazManagmentTableAdapters {
             tableMapping.DataSetTable = "vendeg";
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("nev", "nev");
-            tableMapping.ColumnMappings.Add("nem", "nem");
+            tableMapping.ColumnMappings.Add("vendegNem", "vendegNem");
             tableMapping.ColumnMappings.Add("okmany_tipus", "okmany_tipus");
             tableMapping.ColumnMappings.Add("okmany_azonosito", "okmany_azonosito");
             tableMapping.ColumnMappings.Add("szuletesi_datum", "szuletesi_datum");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[vendeg] WHERE (([id] = @Original_id) AND ([nev] = @Original_nev) AND ([nem] = @Original_nem) AND ([okmany_tipus] = @Original_okmany_tipus) AND ([okmany_azonosito] = @Original_okmany_azonosito) AND ((@IsNull_szuletesi_datum = 1 AND [szuletesi_datum] IS NULL) OR ([szuletesi_datum] = @Original_szuletesi_datum)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[vendeg] WHERE (([id] = @Original_id) AND ([nev] = @Original_nev) AND ([vendegNem] = @Original_vendegNem) AND ([okmany_tipus] = @Original_okmany_tipus) AND ([okmany_azonosito] = @Original_okmany_azonosito) AND ((@IsNull_szuletesi_datum = 1 AND [szuletesi_datum] IS NULL) OR ([szuletesi_datum] = @Original_szuletesi_datum)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nev", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nev", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nem", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nem", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vendegNem", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vendegNem", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_okmany_tipus", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "okmany_tipus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_okmany_azonosito", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "okmany_azonosito", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_szuletesi_datum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "szuletesi_datum", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_szuletesi_datum", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "szuletesi_datum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[vendeg] ([nev], [nem], [okmany_tipus], [okmany_azonosito], [szuletesi_datum]) VALUES (@nev, @nem, @okmany_tipus, @okmany_azonosito, @szuletesi_datum);
-SELECT id, nev, nem, okmany_tipus, okmany_azonosito, szuletesi_datum FROM vendeg WHERE (id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[vendeg] ([nev], [vendegNem], [okmany_tipus], [okmany_azonosito], [szuletesi_datum]) VALUES (@nev, @vendegNem, @okmany_tipus, @okmany_azonosito, @szuletesi_datum);
+SELECT id, nev, vendegNem, okmany_tipus, okmany_azonosito, szuletesi_datum FROM vendeg WHERE (id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nev", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nev", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nem", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nem", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vendegNem", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vendegNem", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@okmany_tipus", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "okmany_tipus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@okmany_azonosito", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "okmany_azonosito", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@szuletesi_datum", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "szuletesi_datum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[vendeg] SET [nev] = @nev, [nem] = @nem, [okmany_tipus] = @okmany_tipus, [okmany_azonosito] = @okmany_azonosito, [szuletesi_datum] = @szuletesi_datum WHERE (([id] = @Original_id) AND ([nev] = @Original_nev) AND ([nem] = @Original_nem) AND ([okmany_tipus] = @Original_okmany_tipus) AND ([okmany_azonosito] = @Original_okmany_azonosito) AND ((@IsNull_szuletesi_datum = 1 AND [szuletesi_datum] IS NULL) OR ([szuletesi_datum] = @Original_szuletesi_datum)));
-SELECT id, nev, nem, okmany_tipus, okmany_azonosito, szuletesi_datum FROM vendeg WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[vendeg] SET [nev] = @nev, [vendegNem] = @vendegNem, [okmany_tipus] = @okmany_tipus, [okmany_azonosito] = @okmany_azonosito, [szuletesi_datum] = @szuletesi_datum WHERE (([id] = @Original_id) AND ([nev] = @Original_nev) AND ([vendegNem] = @Original_vendegNem) AND ([okmany_tipus] = @Original_okmany_tipus) AND ([okmany_azonosito] = @Original_okmany_azonosito) AND ((@IsNull_szuletesi_datum = 1 AND [szuletesi_datum] IS NULL) OR ([szuletesi_datum] = @Original_szuletesi_datum)));
+SELECT id, nev, vendegNem, okmany_tipus, okmany_azonosito, szuletesi_datum FROM vendeg WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nev", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nev", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nem", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nem", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vendegNem", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vendegNem", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@okmany_tipus", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "okmany_tipus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@okmany_azonosito", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "okmany_azonosito", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@szuletesi_datum", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "szuletesi_datum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nev", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nev", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nem", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nem", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vendegNem", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vendegNem", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_okmany_tipus", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "okmany_tipus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_okmany_azonosito", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "okmany_azonosito", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_szuletesi_datum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "szuletesi_datum", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1459,8 +1461,8 @@ SELECT id, nev, nem, okmany_tipus, okmany_azonosito, szuletesi_datum FROM vendeg
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, nev, nem, okmany_tipus, okmany_azonosito, szuletesi_datum FROM dbo.ven" +
-                "deg";
+            this._commandCollection[0].CommandText = "SELECT id, nev, vendegNem, okmany_tipus, okmany_azonosito, szuletesi_datum FROM d" +
+                "bo.vendeg";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1521,7 +1523,7 @@ SELECT id, nev, nem, okmany_tipus, okmany_azonosito, szuletesi_datum FROM vendeg
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id, string Original_nev, byte Original_nem, byte Original_okmany_tipus, string Original_okmany_azonosito, global::System.Nullable<global::System.DateTime> Original_szuletesi_datum) {
+        public virtual int Delete(int Original_id, string Original_nev, byte Original_vendegNem, byte Original_okmany_tipus, string Original_okmany_azonosito, global::System.Nullable<global::System.DateTime> Original_szuletesi_datum) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
             if ((Original_nev == null)) {
                 throw new global::System.ArgumentNullException("Original_nev");
@@ -1529,7 +1531,7 @@ SELECT id, nev, nem, okmany_tipus, okmany_azonosito, szuletesi_datum FROM vendeg
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_nev));
             }
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((byte)(Original_nem));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((byte)(Original_vendegNem));
             this.Adapter.DeleteCommand.Parameters[3].Value = ((byte)(Original_okmany_tipus));
             if ((Original_okmany_azonosito == null)) {
                 throw new global::System.ArgumentNullException("Original_okmany_azonosito");
@@ -1565,14 +1567,14 @@ SELECT id, nev, nem, okmany_tipus, okmany_azonosito, szuletesi_datum FROM vendeg
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string nev, byte nem, byte okmany_tipus, string okmany_azonosito, global::System.Nullable<global::System.DateTime> szuletesi_datum) {
+        public virtual int Insert(string nev, byte vendegNem, byte okmany_tipus, string okmany_azonosito, global::System.Nullable<global::System.DateTime> szuletesi_datum) {
             if ((nev == null)) {
                 throw new global::System.ArgumentNullException("nev");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(nev));
             }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((byte)(nem));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((byte)(vendegNem));
             this.Adapter.InsertCommand.Parameters[2].Value = ((byte)(okmany_tipus));
             if ((okmany_azonosito == null)) {
                 throw new global::System.ArgumentNullException("okmany_azonosito");
@@ -1606,14 +1608,14 @@ SELECT id, nev, nem, okmany_tipus, okmany_azonosito, szuletesi_datum FROM vendeg
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string nev, byte nem, byte okmany_tipus, string okmany_azonosito, global::System.Nullable<global::System.DateTime> szuletesi_datum, int Original_id, string Original_nev, byte Original_nem, byte Original_okmany_tipus, string Original_okmany_azonosito, global::System.Nullable<global::System.DateTime> Original_szuletesi_datum, int id) {
+        public virtual int Update(string nev, byte vendegNem, byte okmany_tipus, string okmany_azonosito, global::System.Nullable<global::System.DateTime> szuletesi_datum, int Original_id, string Original_nev, byte Original_vendegNem, byte Original_okmany_tipus, string Original_okmany_azonosito, global::System.Nullable<global::System.DateTime> Original_szuletesi_datum, int id) {
             if ((nev == null)) {
                 throw new global::System.ArgumentNullException("nev");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(nev));
             }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((byte)(nem));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((byte)(vendegNem));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((byte)(okmany_tipus));
             if ((okmany_azonosito == null)) {
                 throw new global::System.ArgumentNullException("okmany_azonosito");
@@ -1634,7 +1636,7 @@ SELECT id, nev, nem, okmany_tipus, okmany_azonosito, szuletesi_datum FROM vendeg
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_nev));
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((byte)(Original_nem));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((byte)(Original_vendegNem));
             this.Adapter.UpdateCommand.Parameters[8].Value = ((byte)(Original_okmany_tipus));
             if ((Original_okmany_azonosito == null)) {
                 throw new global::System.ArgumentNullException("Original_okmany_azonosito");
@@ -1671,8 +1673,8 @@ SELECT id, nev, nem, okmany_tipus, okmany_azonosito, szuletesi_datum FROM vendeg
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string nev, byte nem, byte okmany_tipus, string okmany_azonosito, global::System.Nullable<global::System.DateTime> szuletesi_datum, int Original_id, string Original_nev, byte Original_nem, byte Original_okmany_tipus, string Original_okmany_azonosito, global::System.Nullable<global::System.DateTime> Original_szuletesi_datum) {
-            return this.Update(nev, nem, okmany_tipus, okmany_azonosito, szuletesi_datum, Original_id, Original_nev, Original_nem, Original_okmany_tipus, Original_okmany_azonosito, Original_szuletesi_datum, Original_id);
+        public virtual int Update(string nev, byte vendegNem, byte okmany_tipus, string okmany_azonosito, global::System.Nullable<global::System.DateTime> szuletesi_datum, int Original_id, string Original_nev, byte Original_vendegNem, byte Original_okmany_tipus, string Original_okmany_azonosito, global::System.Nullable<global::System.DateTime> Original_szuletesi_datum) {
+            return this.Update(nev, vendegNem, okmany_tipus, okmany_azonosito, szuletesi_datum, Original_id, Original_nev, Original_vendegNem, Original_okmany_tipus, Original_okmany_azonosito, Original_szuletesi_datum, Original_id);
         }
     }
     
