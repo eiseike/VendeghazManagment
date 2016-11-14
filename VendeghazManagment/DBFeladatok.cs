@@ -21,6 +21,23 @@ namespace VendeghazManagment
         static SqlConnection connection = null;
 
 
+        public static void ConnectSQL()
+        {
+            try
+            {
+                connection = new SqlConnection(connectionString);
+                connection.Open();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static void DisconnectSQL()
+        {
+            connection.Close();
+        }
 
         public static Vendeg SelectVendeg(int id)
         {
@@ -29,8 +46,7 @@ namespace VendeghazManagment
             SqlDataReader reader = null;
             try
             {
-                connection = new SqlConnection(connectionString);
-                connection.Open();
+               
                 var cmd = new SqlCommand("SELECT nev, nem, okmany_tipus, okmany_azonosito, szuletesi_datum FROM vendeg WHERE id=@id", connection);
                 cmd.Parameters.Add(new SqlParameter("id", id));
                 EasyLog.LogMessageToFile(cmd.CommandText);
@@ -56,7 +72,6 @@ namespace VendeghazManagment
             }
             finally
             {
-                connection.Close();
                 reader.Close();
             }
         }
@@ -66,14 +81,12 @@ namespace VendeghazManagment
                 var vendegekDataTable = new DataTable();
                 try
                 {
-                    connection = new SqlConnection(connectionString);
                     var sqlDataAdapter = new SqlDataAdapter("SELECT *,concat(nev,' ', szuletesi_datum) adatok FROM vendeg", connection);
                     sqlDataAdapter.Fill(vendegekDataTable);
                 }
                 finally
                 {
-                    connection.Close();
-                }
+                                   }
                 return vendegekDataTable;
             }
         }
@@ -81,8 +94,6 @@ namespace VendeghazManagment
         {
             try
             {
-                connection = new SqlConnection(connectionString);
-                connection.Open();
                 EasyLog.LogMessageToFile("Update id="+id);
                 EasyLog.LogMessageToFile("Update vendeg=" + vendeg);
                 var cmd = new SqlCommand("UPDATE vendeg SET nev=@nev, nem=@nem, okmany_tipus=@okmany_tipus, okmany_azonosito=@okmany_azonosito, szuletesi_datum=@szuletesi_datum WHERE id =@id", connection);
@@ -97,7 +108,7 @@ namespace VendeghazManagment
             }
             finally
             {
-                connection.Close();
+               
             }
             return true;
         }
@@ -107,8 +118,7 @@ namespace VendeghazManagment
         {
             try
             {
-                connection = new SqlConnection(connectionString);
-                connection.Open();
+               
                 var cmd = new SqlCommand("DELETE FROM vendeg WHERE id=@id", connection);
 
                 cmd.Parameters.Add(new SqlParameter("id", id));
@@ -117,7 +127,7 @@ namespace VendeghazManagment
             }
             finally
             {
-                connection.Close();
+              
             }
             return true;
         }
@@ -127,8 +137,7 @@ namespace VendeghazManagment
         {
             try
             {
-                connection = new SqlConnection(connectionString);
-                connection.Open();
+              
                 var cmd = new SqlCommand("INSERT into vendeg (nev, nem, okmany_tipus, okmany_azonosito, szuletesi_datum) VALUES(@nev, @nem, @okmany_tipus, @okmany_azonosito, @szuletesi_datum)", connection);
 
                 cmd.Parameters.Add(new SqlParameter("nev", vendeg.Nev));
@@ -141,7 +150,7 @@ namespace VendeghazManagment
             }
             finally
             {
-                connection.Close();
+                
             }
             return true;
         }

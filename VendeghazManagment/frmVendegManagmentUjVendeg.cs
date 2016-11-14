@@ -40,6 +40,7 @@ namespace VendeghazManagment
             txtVendegOkmanyAzonosito.Text = _tarolt.OkmanyAzonosito;
             cboVendegNem.SelectedIndex =(int) _tarolt.VendegNem;
             cboVendegOkmanyTipus.SelectedIndex = (int) _tarolt.VendegOkmanyTipus;
+            dtpVendegSzuletesiDatum.Value= _tarolt.SzuletesiDatum;
         }
 
 

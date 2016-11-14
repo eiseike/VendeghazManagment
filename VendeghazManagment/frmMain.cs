@@ -17,6 +17,15 @@ namespace VendeghazManagment
         public FrmMain()
         {
             InitializeComponent();
+
+            try
+            {
+                DBFeladatok.ConnectSQL();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nem sikerült csatlakozni az adatbázishoz." +Environment.NewLine + ex.Message);
+            }
         }
 
         private void btnVendegek_Click(object sender, EventArgs e)
@@ -29,6 +38,18 @@ namespace VendeghazManagment
         {
             FrmSzobaManagment frmSzobaManagment = new FrmSzobaManagment();
             frmSzobaManagment.Show();
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Biztos kilép?","Biztos benne?",MessageBoxButtons.OKCancel) != DialogResult.OK)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                DBFeladatok.DisconnectSQL();
+            }
         }
     }
 }
