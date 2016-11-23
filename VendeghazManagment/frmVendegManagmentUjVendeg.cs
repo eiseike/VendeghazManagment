@@ -91,8 +91,8 @@ namespace VendeghazManagment
                     _tarolt.VendegNem = (VendegNem) cboVendegNem.SelectedItem;
                     _tarolt.VendegOkmanyTipus = (VendegOkmanyTipus) cboVendegOkmanyTipus.SelectedItem;
                     _tarolt.OkmanyAzonosito = txtVendegOkmanyAzonosito.Text.Trim();
-
-                    EasyLog.LogMessageToFile("MOd vendeg = "+_tarolt);
+                    _tarolt.SzuletesiDatum = dtpVendegSzuletesiDatum.Value;
+                    EasyLog.LogMessageToFile("Mod vendeg = "+_tarolt);
                 }
             }
         }
