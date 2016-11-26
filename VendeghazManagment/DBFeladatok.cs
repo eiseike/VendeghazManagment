@@ -21,6 +21,15 @@ namespace VendeghazManagment
         static SqlConnection connection = null;
 
 
+        //Kisegítő funkció ami a bejövő hibaüzenetet hozzáfúzi a hibákhoz újsorral elválasztva
+        public static void AddError(ref string error, string szoveg)
+        {
+            if (error != "")
+                error += Environment.NewLine;
+            error += szoveg;
+        }
+
+        //SQL kapcsolódásér
         public static void ConnectSQL()
         {
             try
@@ -39,6 +48,9 @@ namespace VendeghazManagment
             connection.Close();
         }
 
+        //############
+        //# Vendegek #
+        //############
         public static Vendeg SelectVendeg(int id)
         {
 
@@ -135,8 +147,6 @@ namespace VendeghazManagment
 
         public static bool SaveVendeg(Vendeg vendeg)
         {
-            try
-            {
               
                 var cmd = new SqlCommand("INSERT into vendeg (nev, nem, okmany_tipus, okmany_azonosito, szuletesi_datum) VALUES(@nev, @nem, @okmany_tipus, @okmany_azonosito, @szuletesi_datum)", connection);
 
@@ -147,12 +157,42 @@ namespace VendeghazManagment
                 cmd.Parameters.Add(new SqlParameter("szuletesi_datum", vendeg.SzuletesiDatum));
                 EasyLog.LogMessageToFile(cmd.CommandText);
                 cmd.ExecuteNonQuery();
-            }
-            finally
-            {
-                
-            }
+           
             return true;
+        }
+
+        //##########
+        //# Szobak #
+        //##########
+
+        public static bool SaveSzoba(Szoba szoba)
+        {
+           
+                var cmd = new SqlCommand("INSERT into szoba (nev, emelet, felnott_hely, gyermek_hely, kiadhato, megjegyzes) VALUES(@nev, @emelet, @felnott_hely, @gyermek_hely, @kiadhato, @megjegyzes)", connection);
+
+                cmd.Parameters.Add(new SqlParameter("nev", szoba.Nev));
+                cmd.Parameters.Add(new SqlParameter("emelet", (int)szoba.Emelet));
+                cmd.Parameters.Add(new SqlParameter("felnott_hely", szoba.Felnott_hely));
+                cmd.Parameters.Add(new SqlParameter("gyermek_hely", szoba.Gyermek_hely));
+                cmd.Parameters.Add(new SqlParameter("kiadhato", (byte)(szoba.Kiadhato==true?1:0)));
+                cmd.Parameters.Add(new SqlParameter("megjegyzes", szoba.Megjegyzes.Trim()));
+                EasyLog.LogMessageToFile(cmd.CommandText);
+                cmd.ExecuteNonQuery();
+           
+            return true;
+        }
+
+        public static DataTable SzobaDataTable()
+        {
+            {
+                var szobaDataTable = new DataTable();
+                
+                    var sqlDataAdapter = new SqlDataAdapter("SELECT emelet,* FROM szoba", connection);
+                    sqlDataAdapter.Fill(szobaDataTable);
+               
+      
+                return szobaDataTable;
+            }
         }
     }
 }

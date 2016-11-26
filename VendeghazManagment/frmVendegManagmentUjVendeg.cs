@@ -49,13 +49,6 @@ namespace VendeghazManagment
             get { return _tarolt; }
         }
 
-        //Kisegítő funkció ami a bejövő hibaüzenetet hozzáfúzi a hibákhoz újsorral elválasztva
-        private void addError(ref string error, string szoveg)
-        {
-            if (error != "")
-                error += Environment.NewLine;
-            error += szoveg;
-        }
 
 
         private void buttonOK_Click(object sender, EventArgs e)
@@ -63,11 +56,11 @@ namespace VendeghazManagment
             var error = "";
             if (txtVendegNev.Text.Trim() == "")
             {
-                addError(ref error, "VendegNem adott meg nevet!");
+                DBFeladatok.AddError(ref error, "VendegNem adott meg nevet!");
             }
             if (txtVendegOkmanyAzonosito.Text.Trim() == "")
             {
-                addError(ref error, "VendegNem adott meg okmányszámot!");
+                DBFeladatok.AddError(ref error, "VendegNem adott meg okmányszámot!");
             }
 
             if (error != "")

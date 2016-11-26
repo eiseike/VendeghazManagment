@@ -27,6 +27,13 @@ namespace VendeghazManagment
         Személyi,
         Útlevél
     }
+
+
+    public enum IgenNem
+    {
+        Nem,
+        Igen
+    }
     static class Enumok
     {
     }

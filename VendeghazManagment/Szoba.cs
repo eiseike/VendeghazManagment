@@ -10,7 +10,7 @@ namespace VendeghazManagment
     class Szoba
     {
         private string _nev;
-        private int _emelet;
+        private SzobaEmelet _emelet;
         private int _felnottHely;
         private int _gyermekHely;
         private bool _kiadhato;
@@ -29,7 +29,7 @@ namespace VendeghazManagment
             }
         }
 
-        public int Emelet
+        public SzobaEmelet Emelet
         {
             get
             {
@@ -94,7 +94,7 @@ namespace VendeghazManagment
             }
         }
 
-        public Szoba(string nev, int emelet, int felnottHely, int gyermekHely, bool kiadhato, string megjegyzes)
+        public Szoba(string nev, SzobaEmelet emelet, int felnottHely, int gyermekHely, bool kiadhato, string megjegyzes)
         {
             Nev = nev;
             Emelet = emelet;
