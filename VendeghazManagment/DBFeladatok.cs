@@ -174,7 +174,7 @@ namespace VendeghazManagment
                 cmd.Parameters.Add(new SqlParameter("emelet", (int)szoba.Emelet));
                 cmd.Parameters.Add(new SqlParameter("felnott_hely", szoba.Felnott_hely));
                 cmd.Parameters.Add(new SqlParameter("gyermek_hely", szoba.Gyermek_hely));
-                cmd.Parameters.Add(new SqlParameter("kiadhato", (byte)(szoba.Kiadhato==true?1:0)));
+                cmd.Parameters.Add(new SqlParameter("kiadhato", (byte)(szoba.Kiadhato?1:0)));
                 cmd.Parameters.Add(new SqlParameter("megjegyzes", szoba.Megjegyzes.Trim()));
                 EasyLog.LogMessageToFile(cmd.CommandText);
                 cmd.ExecuteNonQuery();
@@ -193,6 +193,96 @@ namespace VendeghazManagment
       
                 return szobaDataTable;
             }
+        }
+
+
+        public static Szoba SelectSzoba(int id)
+        {
+
+            EasyLog.LogMessageToFile("Selected szoba is =" + id);
+            SqlDataReader reader = null;
+            try
+            {
+
+                var cmd = new SqlCommand("SELECT nev, emelet, felnott_hely, gyermek_hely, kiadhato, megjegyzes FROM szoba WHERE id=@id", connection);
+                cmd.Parameters.Add(new SqlParameter("id", id));
+                EasyLog.LogMessageToFile(cmd.CommandText);
+
+                reader = cmd.ExecuteReader();
+
+                if (!reader.Read())
+                {
+                    //#todo: what if Szoba id invalid?
+                    throw new NotImplementedException();
+                }
+
+                var nev = reader["nev"].ToString();
+                var emelet = (SzobaEmelet) int.Parse(reader["emelet"].ToString());
+                var felnott_hely = int.Parse(reader["felnott_hely"].ToString());
+                var gyerek = int.Parse(reader["gyermek_hely"].ToString());
+                var kiadhato = (bool)reader["kiadhato"];
+                var megjegyzes = reader["megjegyzes"].ToString();
+                var lofasy = reader["kiadhato"].ToString();
+
+
+                return new Szoba(
+                  nev,
+                  emelet,
+                  felnott_hely,
+                  gyerek,
+                  kiadhato,
+                  megjegyzes
+               );
+
+
+            }
+            finally
+            {
+                reader.Close();
+            }
+        }
+
+        public static bool UpdateSzoba(int id, Szoba szoba)
+        {
+            try
+            {
+                EasyLog.LogMessageToFile("Update id=" + id);
+                EasyLog.LogMessageToFile("Update szoba=" + szoba);
+
+               var cmd = new SqlCommand("UPDATE szoba SET nev=@nev, emelet=@emelet, felnott_hely=@felnott_hely, gyermek_hely=@gyermek_hely, kiadhato=@kiadhato, megjegyzes=@megjegyzes WHERE id =@id", connection);
+                cmd.Parameters.Add(new SqlParameter("id", id));
+                cmd.Parameters.Add(new SqlParameter("nev", szoba.Nev));
+                cmd.Parameters.Add(new SqlParameter("emelet", (int)szoba.Emelet));
+                cmd.Parameters.Add(new SqlParameter("felnott_hely", szoba.Felnott_hely));
+                cmd.Parameters.Add(new SqlParameter("gyermek_hely", szoba.Gyermek_hely));
+                cmd.Parameters.Add(new SqlParameter("kiadhato", (byte)(szoba.Kiadhato ? 1 : 0)));
+                cmd.Parameters.Add(new SqlParameter("megjegyzes", szoba.Megjegyzes));
+                EasyLog.LogMessageToFile(cmd.CommandText);
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+
+            } 
+            return true;
+        }
+
+        public static bool DeleteSzoba(int id)
+        {
+            try
+            {
+
+                var cmd = new SqlCommand("DELETE FROM szoba WHERE id=@id", connection);
+
+                cmd.Parameters.Add(new SqlParameter("id", id));
+                EasyLog.LogMessageToFile(cmd.CommandText);
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+
+            }
+            return true;
         }
     }
 }

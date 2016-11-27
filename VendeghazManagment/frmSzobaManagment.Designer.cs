@@ -32,6 +32,7 @@
             this.btnTorSzoba = new System.Windows.Forms.Button();
             this.lstSzoba = new System.Windows.Forms.ListBox();
             this.btnModSzoba = new System.Windows.Forms.Button();
+            this.txtSzobaLstSzobaQuickFind = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnUjSzoba
@@ -52,6 +53,7 @@
             this.btnTorSzoba.TabIndex = 7;
             this.btnTorSzoba.Text = "Szoba törlése";
             this.btnTorSzoba.UseVisualStyleBackColor = true;
+            this.btnTorSzoba.Click += new System.EventHandler(this.btnTorSzoba_Click);
             // 
             // lstSzoba
             // 
@@ -60,6 +62,7 @@
             this.lstSzoba.Name = "lstSzoba";
             this.lstSzoba.Size = new System.Drawing.Size(120, 95);
             this.lstSzoba.TabIndex = 6;
+            this.lstSzoba.DoubleClick += new System.EventHandler(this.lstSzoba_DoubleClick);
             // 
             // btnModSzoba
             // 
@@ -69,19 +72,30 @@
             this.btnModSzoba.TabIndex = 5;
             this.btnModSzoba.Text = "Szoba módosítása";
             this.btnModSzoba.UseVisualStyleBackColor = true;
+            this.btnModSzoba.Click += new System.EventHandler(this.btnModSzoba_Click);
             // 
-            // frmSzobaManagment
+            // txtSzobaLstSzobaQuickFind
+            // 
+            this.txtSzobaLstSzobaQuickFind.Location = new System.Drawing.Point(144, 90);
+            this.txtSzobaLstSzobaQuickFind.Name = "txtSzobaLstSzobaQuickFind";
+            this.txtSzobaLstSzobaQuickFind.Size = new System.Drawing.Size(118, 20);
+            this.txtSzobaLstSzobaQuickFind.TabIndex = 8;
+            this.txtSzobaLstSzobaQuickFind.TextChanged += new System.EventHandler(this.txtSzobaLstSzobaQuickFind_TextChanged);
+            // 
+            // FrmSzobaManagment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.txtSzobaLstSzobaQuickFind);
             this.Controls.Add(this.btnModSzoba);
             this.Controls.Add(this.lstSzoba);
             this.Controls.Add(this.btnTorSzoba);
             this.Controls.Add(this.btnUjSzoba);
-            this.Name = "frmSzobaManagment";
+            this.Name = "FrmSzobaManagment";
             this.Text = "fmtSzobaManagment";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -91,5 +105,6 @@
         private System.Windows.Forms.Button btnTorSzoba;
         private System.Windows.Forms.ListBox lstSzoba;
         private System.Windows.Forms.Button btnModSzoba;
+        private System.Windows.Forms.TextBox txtSzobaLstSzobaQuickFind;
     }
 }

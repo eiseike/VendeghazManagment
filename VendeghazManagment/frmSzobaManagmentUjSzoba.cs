@@ -33,6 +33,24 @@ namespace VendeghazManagment
             initCtor();
         }
 
+        public FrmSzobaManagmentUjSzoba(int szobaId)
+        {
+            initCtor();
+
+            _tarolt = DBFeladatok.SelectSzoba(szobaId);
+
+            txtSzobaNev.Text = _tarolt.Nev;
+
+            // public Szoba(string nev, SzobaEmelet emelet, int felnottHely, int gyermekHely, bool kiadhato, string megjegyzes)
+
+            cboSzobaEmelet.SelectedIndex = (int) _tarolt.Emelet;
+            nudSzobaFelnotthely.Value = _tarolt.Felnott_hely;
+            nudSzobaGyermekHely.Value = _tarolt.Gyermek_hely;
+            cboSzobaKiadhato.SelectedIndex = _tarolt.Kiadhato == true ? 1 : 0;
+            txtSzobaMegjegyzes.Text = _tarolt.Megjegyzes;
+        }
+
+
         private void initCtor()
         {
             InitializeComponent();
