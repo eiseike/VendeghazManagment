@@ -30,6 +30,7 @@
         {
             this.btnVendegek = new System.Windows.Forms.Button();
             this.btnSzobak = new System.Windows.Forms.Button();
+            this.btnFoglalas = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVendegek
@@ -52,16 +53,28 @@
             this.btnSzobak.UseVisualStyleBackColor = true;
             this.btnSzobak.Click += new System.EventHandler(this.btnSzobak_Click);
             // 
+            // btnFoglalas
+            // 
+            this.btnFoglalas.Location = new System.Drawing.Point(12, 238);
+            this.btnFoglalas.Name = "btnFoglalas";
+            this.btnFoglalas.Size = new System.Drawing.Size(160, 23);
+            this.btnFoglalas.TabIndex = 0;
+            this.btnFoglalas.Text = "Szobafoglalás";
+            this.btnFoglalas.UseVisualStyleBackColor = true;
+            this.btnFoglalas.Click += new System.EventHandler(this.btnFoglalas_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 817);
+            this.Controls.Add(this.btnFoglalas);
             this.Controls.Add(this.btnSzobak);
             this.Controls.Add(this.btnVendegek);
             this.Name = "FrmMain";
-            this.Text = "Form1";
+            this.Text = "Szobafoglalás";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.ResumeLayout(false);
 
         }
@@ -70,6 +83,7 @@
 
         private System.Windows.Forms.Button btnVendegek;
         private System.Windows.Forms.Button btnSzobak;
+        private System.Windows.Forms.Button btnFoglalas;
     }
 }
 

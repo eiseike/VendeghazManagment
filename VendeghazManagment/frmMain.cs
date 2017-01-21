@@ -24,18 +24,23 @@ namespace VendeghazManagment
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Nem sikerült csatlakozni az adatbázishoz." +Environment.NewLine + ex.Message);
+                MessageBox.Show("Nem sikerült csatlakozni az adatbázishoz." + Environment.NewLine + ex.Message);
             }
 
-            FrmFoglalasManagmentUjFoglalas frmFoglalasManagmentUjFoglalas = new FrmFoglalasManagmentUjFoglalas();
-            frmFoglalasManagmentUjFoglalas.ShowDialog();
-
+            //FrmFoglalasManagmentUjFoglalas frmFoglalasManagmentUjFoglalas = new FrmFoglalasManagmentUjFoglalas();
+            //frmFoglalasManagmentUjFoglalas.ShowDialog();
         }
 
         private void btnVendegek_Click(object sender, EventArgs e)
-        { 
+        {
             FrmVendegManagment vendegManagment = new FrmVendegManagment();
             vendegManagment.Show();
+        }
+
+        private void btnFoglalas_Click(object sender, EventArgs e)
+        {
+            FrmFoglalasManagment frmFoglalasManagment = new FrmFoglalasManagment();
+            frmFoglalasManagment.Show();
         }
 
         private void btnSzobak_Click(object sender, EventArgs e)
@@ -46,7 +51,7 @@ namespace VendeghazManagment
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Biztos kilép?","Biztos benne?",MessageBoxButtons.OKCancel) != DialogResult.OK)
+            if (MessageBox.Show("Biztos kilép?", "Biztos benne?", MessageBoxButtons.OKCancel) != DialogResult.OK)
             {
                 e.Cancel = true;
             }
@@ -54,6 +59,10 @@ namespace VendeghazManagment
             {
                 DBFeladatok.DisconnectSQL();
             }
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
         }
     }
 }

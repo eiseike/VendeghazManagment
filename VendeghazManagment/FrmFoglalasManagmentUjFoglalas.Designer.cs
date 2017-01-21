@@ -59,6 +59,8 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudSzobaGyermekHely)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSzobaFelnotthely)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -66,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // nudSzobaGyermekHely
@@ -169,7 +172,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(631, 503);
+            this.label2.Location = new System.Drawing.Point(19, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 24;
@@ -186,7 +189,7 @@
             // 
             // txtSzobaLstSzobaQuickFind
             // 
-            this.txtSzobaLstSzobaQuickFind.Location = new System.Drawing.Point(689, 500);
+            this.txtSzobaLstSzobaQuickFind.Location = new System.Drawing.Point(77, 26);
             this.txtSzobaLstSzobaQuickFind.Name = "txtSzobaLstSzobaQuickFind";
             this.txtSzobaLstSzobaQuickFind.Size = new System.Drawing.Size(118, 20);
             this.txtSzobaLstSzobaQuickFind.TabIndex = 36;
@@ -194,7 +197,7 @@
             // lstSzoba
             // 
             this.lstSzoba.FormattingEnabled = true;
-            this.lstSzoba.Location = new System.Drawing.Point(689, 526);
+            this.lstSzoba.Location = new System.Drawing.Point(77, 52);
             this.lstSzoba.Name = "lstSzoba";
             this.lstSzoba.Size = new System.Drawing.Size(120, 95);
             this.lstSzoba.TabIndex = 35;
@@ -234,11 +237,11 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(596, 541);
+            this.button2.Location = new System.Drawing.Point(22, 211);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(118, 23);
             this.button2.TabIndex = 37;
-            this.button2.Text = "Vendég +";
+            this.button2.Text = "Foglalás hozzáadása";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // btnFoglalasUjSzobaSor
@@ -387,19 +390,40 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "groupBox4";
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.lstSzoba);
+            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.txtSzobaLstSzobaQuickFind);
+            this.groupBox5.Controls.Add(this.button3);
+            this.groupBox5.Controls.Add(this.button2);
+            this.groupBox5.Location = new System.Drawing.Point(816, 28);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(287, 249);
+            this.groupBox5.TabIndex = 43;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "groupBox5";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(163, 211);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(118, 23);
+            this.button3.TabIndex = 37;
+            this.button3.Text = "Foglalás törlése";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // FrmFoglalasManagmentUjFoglalas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 654);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btnFoglalasUjSzobaSorElvetel);
             this.Controls.Add(this.btnFoglalasUjSzobaSor);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.txtSzobaLstSzobaQuickFind);
-            this.Controls.Add(this.lstSzoba);
             this.Controls.Add(this.nudSzobaFelnotthely);
             this.Controls.Add(this.cboSzobaKiadhato);
             this.Controls.Add(this.btnCancel);
@@ -407,7 +431,6 @@
             this.Controls.Add(this.txtSzobaNev);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmFoglalasManagmentUjFoglalas";
             ((System.ComponentModel.ISupportInitialize)(this.nudSzobaGyermekHely)).EndInit();
@@ -420,6 +443,8 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -457,5 +482,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button button3;
     }
 }
