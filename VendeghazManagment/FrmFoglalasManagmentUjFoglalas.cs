@@ -11,6 +11,26 @@ using System.Windows.Forms;
 namespace VendeghazManagment
 {
 
+    //letrehozunk egy foglalast sql-ben, es megtudjuk az ID-t, azt eltesszuk.
+
+    //miniden szurke, csak a szoba es vendeg resz nem (?)
+
+    //kivalaszthatunk egy vendeget, akihez rendeljuk az egeszet - vagy hozzaadunk egy uj vendeget, es kivalasztjuk.
+
+    //kivalasztjuk a datumot mettol meddig. ez kiirja a szabad szobakat.
+
+    //kivalasztjuk hany ember, ez kiirja a lehetseges szobakat.
+
+    //kivalasztjuk a szobat.
+
+    //beikszeljuk hany ember ker reggelit, ebedet.
+     
+    //elmentjuk a foglalast a vendeghez.
+    
+
+    //Sikeres mentesnel, ha meg nincs , elnevezzuk a foglalast valami random azonositoval, es azt is beleirjuk a tablaba.
+
+
 
     public partial class FrmFoglalasManagmentUjFoglalas : Form
     {
@@ -44,7 +64,7 @@ namespace VendeghazManagment
         {
             if (count == max_row - 1)
             {
-                MessageBox.Show("Maximum of 10 rows can be added");
+                MessageBox.Show("Maximum of " + max_row + " rows can be added");
                 return;
             }
             else
