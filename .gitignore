@@ -240,3 +240,6 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/VendeghazManagment/Vendeghaz2.vux
+/VendeghazManagment/Vendeghaz2.vpp.bak_000f
+/VendeghazManagment/.Vendeghaz2.vpp.lck
