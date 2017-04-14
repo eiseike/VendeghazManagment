@@ -32,6 +32,7 @@
             this.lstVendeg = new System.Windows.Forms.ListBox();
             this.btnModVendeg = new System.Windows.Forms.Button();
             this.btnTorVendeg = new System.Windows.Forms.Button();
+            this.txtVendegLstVendegQuickFind = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnUjVendeg
@@ -73,18 +74,28 @@
             this.btnTorVendeg.UseVisualStyleBackColor = true;
             this.btnTorVendeg.Click += new System.EventHandler(this.btnTorVendeg_Click);
             // 
-            // frmVendegManagment
+            // txtVendegLstVendegQuickFind
+            // 
+            this.txtVendegLstVendegQuickFind.Location = new System.Drawing.Point(130, 79);
+            this.txtVendegLstVendegQuickFind.Name = "txtVendegLstVendegQuickFind";
+            this.txtVendegLstVendegQuickFind.Size = new System.Drawing.Size(118, 20);
+            this.txtVendegLstVendegQuickFind.TabIndex = 9;
+            this.txtVendegLstVendegQuickFind.TextChanged += new System.EventHandler(this.txtVendegLstVendegQuickFind_TextChanged);
+            // 
+            // FrmVendegManagment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.txtVendegLstVendegQuickFind);
             this.Controls.Add(this.btnModVendeg);
             this.Controls.Add(this.lstVendeg);
             this.Controls.Add(this.btnTorVendeg);
             this.Controls.Add(this.btnUjVendeg);
-            this.Name = "frmVendegManagment";
+            this.Name = "FrmVendegManagment";
             this.Text = "VendegManagment";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -94,5 +105,6 @@
         private System.Windows.Forms.ListBox lstVendeg;
         private System.Windows.Forms.Button btnModVendeg;
         private System.Windows.Forms.Button btnTorVendeg;
+        private System.Windows.Forms.TextBox txtVendegLstVendegQuickFind;
     }
 }

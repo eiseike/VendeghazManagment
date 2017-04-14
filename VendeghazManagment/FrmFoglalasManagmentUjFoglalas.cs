@@ -104,5 +104,22 @@ namespace VendeghazManagment
                 count--;
             }
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            EllenorzesDatumok();
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            EllenorzesDatumok();
+        }
+
+        private void EllenorzesDatumok()
+        {
+            groupBoxUtolsoNap.BackColor = dateTimePicker1.Value < dateTimePicker2.Value
+                ? Color.PaleVioletRed
+                : Control.DefaultBackColor;
+        }
     }
 }

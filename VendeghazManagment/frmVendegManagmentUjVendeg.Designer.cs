@@ -121,7 +121,8 @@
             // 
             // dtpVendegSzuletesiDatum
             // 
-            this.dtpVendegSzuletesiDatum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpVendegSzuletesiDatum.CustomFormat = "yyyy MM. dd.";
+            this.dtpVendegSzuletesiDatum.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpVendegSzuletesiDatum.Location = new System.Drawing.Point(137, 131);
             this.dtpVendegSzuletesiDatum.Name = "dtpVendegSzuletesiDatum";
             this.dtpVendegSzuletesiDatum.Size = new System.Drawing.Size(121, 20);

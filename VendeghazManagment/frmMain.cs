@@ -27,8 +27,8 @@ namespace VendeghazManagment
                 MessageBox.Show("Nem sikerült csatlakozni az adatbázishoz." + Environment.NewLine + ex.Message);
             }
 
-            //FrmFoglalasManagmentUjFoglalas frmFoglalasManagmentUjFoglalas = new FrmFoglalasManagmentUjFoglalas();
-            //frmFoglalasManagmentUjFoglalas.ShowDialog();
+            FrmFoglalasManagmentUjFoglalas frmFoglalasManagmentUjFoglalas = new FrmFoglalasManagmentUjFoglalas();
+            frmFoglalasManagmentUjFoglalas.ShowDialog();
         }
 
         private void btnVendegek_Click(object sender, EventArgs e)
