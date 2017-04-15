@@ -55,7 +55,7 @@
             // 
             // btnFoglalas
             // 
-            this.btnFoglalas.Location = new System.Drawing.Point(12, 238);
+            this.btnFoglalas.Location = new System.Drawing.Point(12, 179);
             this.btnFoglalas.Name = "btnFoglalas";
             this.btnFoglalas.Size = new System.Drawing.Size(160, 23);
             this.btnFoglalas.TabIndex = 0;
@@ -74,7 +74,6 @@
             this.Name = "FrmMain";
             this.Text = "Szobafoglalás";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
-            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.ResumeLayout(false);
 
         }

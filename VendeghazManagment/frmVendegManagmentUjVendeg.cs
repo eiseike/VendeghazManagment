@@ -56,11 +56,11 @@ namespace VendeghazManagment
             var error = "";
             if (txtVendegNev.Text.Trim() == "")
             {
-                DBFeladatok.AddError(ref error, "VendegNem adott meg nevet!");
+                DBFeladatok.AddError(ref error, "Nem adott meg nevet!");
             }
             if (txtVendegOkmanyAzonosito.Text.Trim() == "")
             {
-                DBFeladatok.AddError(ref error, "VendegNem adott meg okmányszámot!");
+                DBFeladatok.AddError(ref error, "Nem adott meg okmányszámot!");
             }
 
             if (error != "")

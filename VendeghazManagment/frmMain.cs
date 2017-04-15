@@ -60,9 +60,5 @@ namespace VendeghazManagment
                 DBFeladatok.DisconnectSQL();
             }
         }
-
-        private void FrmMain_Load(object sender, EventArgs e)
-        {
-        }
     }
 }
