@@ -113,7 +113,9 @@ namespace VendeghazManagment
 
         private List<Szoba> SzabadSzobaKeresese(int felnott, int gyermek, DateTime tol, DateTime ig)
         {
-            return new List<Szoba>();
+            List<Szoba> szobak =  new List<Szoba>();
+            szobak.Add(new Szoba("teszt nev", SzobaEmelet.Első_emelet, 3, 2, true, "Alles OK!"));
+            return szobak;
         }
 
 
