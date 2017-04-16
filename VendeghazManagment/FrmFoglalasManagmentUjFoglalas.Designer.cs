@@ -43,11 +43,9 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupIdopont = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBoxUtolsoNap = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dtpUtolsoNap = new System.Windows.Forms.DateTimePicker();
-            this.dtpElsoNap = new System.Windows.Forms.DateTimePicker();
             this.groupVendegek = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.nudFoglalasFelnottek = new System.Windows.Forms.NumericUpDown();
@@ -60,6 +58,9 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.btnSzobaKereses = new System.Windows.Forms.Button();
+            this.groupBoxElsoNap = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dtpElsoNap = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.nudSzobaFelnotthely)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupIdopont.SuspendLayout();
@@ -69,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudFoglalasGyermekek)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.groupBoxElsoNap.SuspendLayout();
             this.SuspendLayout();
             // 
             // nudSzobaFelnotthely
@@ -105,7 +107,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(752, 366);
+            this.btnCancel.Location = new System.Drawing.Point(960, 390);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(121, 23);
             this.btnCancel.TabIndex = 28;
@@ -115,7 +117,7 @@
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(752, 337);
+            this.btnOK.Location = new System.Drawing.Point(980, 301);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 29;
@@ -182,7 +184,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(778, 449);
+            this.button2.Location = new System.Drawing.Point(951, 503);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(118, 23);
             this.button2.TabIndex = 37;
@@ -194,7 +196,7 @@
             this.groupBox5.Controls.Add(this.lstSzoba);
             this.groupBox5.Controls.Add(this.label2);
             this.groupBox5.Controls.Add(this.txtSzobaLstSzobaQuickFind);
-            this.groupBox5.Location = new System.Drawing.Point(235, 18);
+            this.groupBox5.Location = new System.Drawing.Point(282, 41);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(287, 249);
             this.groupBox5.TabIndex = 43;
@@ -212,40 +214,30 @@
             // 
             // groupIdopont
             // 
-            this.groupIdopont.Controls.Add(this.label7);
+            this.groupIdopont.Controls.Add(this.groupBoxElsoNap);
             this.groupIdopont.Controls.Add(this.groupBoxUtolsoNap);
-            this.groupIdopont.Controls.Add(this.dtpElsoNap);
-            this.groupIdopont.Location = new System.Drawing.Point(17, 23);
+            this.groupIdopont.Location = new System.Drawing.Point(15, 17);
             this.groupIdopont.Name = "groupIdopont";
-            this.groupIdopont.Size = new System.Drawing.Size(212, 114);
+            this.groupIdopont.Size = new System.Drawing.Size(233, 143);
             this.groupIdopont.TabIndex = 33;
             this.groupIdopont.TabStop = false;
             this.groupIdopont.Text = "Iőpont";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 16);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 13);
-            this.label7.TabIndex = 24;
-            this.label7.Text = "Első nap:";
             // 
             // groupBoxUtolsoNap
             // 
             this.groupBoxUtolsoNap.BackColor = System.Drawing.SystemColors.Control;
             this.groupBoxUtolsoNap.Controls.Add(this.label8);
             this.groupBoxUtolsoNap.Controls.Add(this.dtpUtolsoNap);
-            this.groupBoxUtolsoNap.Location = new System.Drawing.Point(0, 42);
+            this.groupBoxUtolsoNap.Location = new System.Drawing.Point(11, 75);
             this.groupBoxUtolsoNap.Name = "groupBoxUtolsoNap";
-            this.groupBoxUtolsoNap.Size = new System.Drawing.Size(212, 72);
+            this.groupBoxUtolsoNap.Size = new System.Drawing.Size(200, 50);
             this.groupBoxUtolsoNap.TabIndex = 46;
             this.groupBoxUtolsoNap.TabStop = false;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 26);
+            this.label8.Location = new System.Drawing.Point(6, 10);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(61, 13);
             this.label8.TabIndex = 45;
@@ -255,21 +247,11 @@
             // 
             this.dtpUtolsoNap.CustomFormat = "yyyy MM. dd.";
             this.dtpUtolsoNap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpUtolsoNap.Location = new System.Drawing.Point(85, 19);
+            this.dtpUtolsoNap.Location = new System.Drawing.Point(76, 10);
             this.dtpUtolsoNap.Name = "dtpUtolsoNap";
             this.dtpUtolsoNap.Size = new System.Drawing.Size(84, 20);
             this.dtpUtolsoNap.TabIndex = 44;
             this.dtpUtolsoNap.ValueChanged += new System.EventHandler(this.dtpUtolsoNap_ValueChanged);
-            // 
-            // dtpElsoNap
-            // 
-            this.dtpElsoNap.CustomFormat = "yyyy MM. dd.";
-            this.dtpElsoNap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpElsoNap.Location = new System.Drawing.Point(85, 10);
-            this.dtpElsoNap.Name = "dtpElsoNap";
-            this.dtpElsoNap.Size = new System.Drawing.Size(84, 20);
-            this.dtpElsoNap.TabIndex = 0;
-            this.dtpElsoNap.ValueChanged += new System.EventHandler(this.dtpElsoNap_ValueChanged);
             // 
             // groupVendegek
             // 
@@ -277,7 +259,7 @@
             this.groupVendegek.Controls.Add(this.nudFoglalasFelnottek);
             this.groupVendegek.Controls.Add(this.label4);
             this.groupVendegek.Controls.Add(this.nudFoglalasGyermekek);
-            this.groupVendegek.Location = new System.Drawing.Point(17, 143);
+            this.groupVendegek.Location = new System.Drawing.Point(6, 216);
             this.groupVendegek.Name = "groupVendegek";
             this.groupVendegek.Size = new System.Drawing.Size(212, 111);
             this.groupVendegek.TabIndex = 34;
@@ -348,7 +330,7 @@
             this.groupBox2.Controls.Add(this.btnSzobaKereses);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(861, 302);
+            this.groupBox2.Size = new System.Drawing.Size(861, 371);
             this.groupBox2.TabIndex = 41;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
@@ -359,7 +341,7 @@
             this.groupBox6.Controls.Add(this.listBox2);
             this.groupBox6.Controls.Add(this.textBox2);
             this.groupBox6.Controls.Add(this.button4);
-            this.groupBox6.Location = new System.Drawing.Point(538, 26);
+            this.groupBox6.Location = new System.Drawing.Point(569, 36);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(292, 248);
             this.groupBox6.TabIndex = 41;
@@ -401,13 +383,43 @@
             // 
             // btnSzobaKereses
             // 
-            this.btnSzobaKereses.Location = new System.Drawing.Point(33, 260);
+            this.btnSzobaKereses.Location = new System.Drawing.Point(22, 333);
             this.btnSzobaKereses.Name = "btnSzobaKereses";
             this.btnSzobaKereses.Size = new System.Drawing.Size(179, 23);
             this.btnSzobaKereses.TabIndex = 29;
             this.btnSzobaKereses.Text = "Szoba keresése";
             this.btnSzobaKereses.UseVisualStyleBackColor = true;
             this.btnSzobaKereses.Click += new System.EventHandler(this.btnSzobaKereses_Click);
+            // 
+            // groupBoxElsoNap
+            // 
+            this.groupBoxElsoNap.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBoxElsoNap.Controls.Add(this.label7);
+            this.groupBoxElsoNap.Controls.Add(this.dtpElsoNap);
+            this.groupBoxElsoNap.Location = new System.Drawing.Point(11, 19);
+            this.groupBoxElsoNap.Name = "groupBoxElsoNap";
+            this.groupBoxElsoNap.Size = new System.Drawing.Size(200, 50);
+            this.groupBoxElsoNap.TabIndex = 47;
+            this.groupBoxElsoNap.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 13);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "Első nap:";
+            // 
+            // dtpElsoNap
+            // 
+            this.dtpElsoNap.CustomFormat = "yyyy MM. dd.";
+            this.dtpElsoNap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpElsoNap.Location = new System.Drawing.Point(76, 10);
+            this.dtpElsoNap.Name = "dtpElsoNap";
+            this.dtpElsoNap.Size = new System.Drawing.Size(84, 20);
+            this.dtpElsoNap.TabIndex = 25;
+            this.dtpElsoNap.ValueChanged += new System.EventHandler(this.dtpElsoNap_ValueChanged);
             // 
             // FrmFoglalasManagmentUjFoglalas
             // 
@@ -430,7 +442,6 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupIdopont.ResumeLayout(false);
-            this.groupIdopont.PerformLayout();
             this.groupBoxUtolsoNap.ResumeLayout(false);
             this.groupBoxUtolsoNap.PerformLayout();
             this.groupVendegek.ResumeLayout(false);
@@ -440,6 +451,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.groupBoxElsoNap.ResumeLayout(false);
+            this.groupBoxElsoNap.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,8 +474,6 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupIdopont;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dtpElsoNap;
         private System.Windows.Forms.GroupBox groupVendegek;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown nudFoglalasFelnottek;
@@ -478,5 +489,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dtpUtolsoNap;
         private System.Windows.Forms.Button btnSzobaKereses;
+        private System.Windows.Forms.GroupBox groupBoxElsoNap;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker dtpElsoNap;
     }
 }
