@@ -40,9 +40,12 @@
             this.txtSzobaLstSzobaQuickFind = new System.Windows.Forms.TextBox();
             this.lstSzoba = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.gpbSzoba = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupIdopont = new System.Windows.Forms.GroupBox();
+            this.groupBoxElsoNap = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dtpElsoNap = new System.Windows.Forms.DateTimePicker();
             this.groupBoxUtolsoNap = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dtpUtolsoNap = new System.Windows.Forms.DateTimePicker();
@@ -51,26 +54,23 @@
             this.nudFoglalasFelnottek = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.nudFoglalasGyermekek = new System.Windows.Forms.NumericUpDown();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.gpbFoglalas = new System.Windows.Forms.GroupBox();
+            this.gpbVendeg = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.btnSzobaKereses = new System.Windows.Forms.Button();
-            this.groupBoxElsoNap = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dtpElsoNap = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.nudSzobaFelnotthely)).BeginInit();
-            this.groupBox5.SuspendLayout();
+            this.gpbSzoba.SuspendLayout();
             this.groupIdopont.SuspendLayout();
+            this.groupBoxElsoNap.SuspendLayout();
             this.groupBoxUtolsoNap.SuspendLayout();
             this.groupVendegek.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudFoglalasFelnottek)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudFoglalasGyermekek)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBoxElsoNap.SuspendLayout();
+            this.gpbFoglalas.SuspendLayout();
+            this.gpbVendeg.SuspendLayout();
             this.SuspendLayout();
             // 
             // nudSzobaFelnotthely
@@ -173,14 +173,16 @@
             this.txtSzobaLstSzobaQuickFind.Name = "txtSzobaLstSzobaQuickFind";
             this.txtSzobaLstSzobaQuickFind.Size = new System.Drawing.Size(118, 20);
             this.txtSzobaLstSzobaQuickFind.TabIndex = 36;
+            this.txtSzobaLstSzobaQuickFind.TextChanged += new System.EventHandler(this.txtSzobaLstSzobaQuickFind_TextChanged);
             // 
             // lstSzoba
             // 
             this.lstSzoba.FormattingEnabled = true;
             this.lstSzoba.Location = new System.Drawing.Point(77, 52);
             this.lstSzoba.Name = "lstSzoba";
-            this.lstSzoba.Size = new System.Drawing.Size(120, 95);
+            this.lstSzoba.Size = new System.Drawing.Size(474, 95);
             this.lstSzoba.TabIndex = 35;
+            this.lstSzoba.DoubleClick += new System.EventHandler(this.lstSzoba_DoubleClick);
             // 
             // button2
             // 
@@ -191,17 +193,17 @@
             this.button2.Text = "Foglalás hozzáadása";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // groupBox5
+            // gpbSzoba
             // 
-            this.groupBox5.Controls.Add(this.lstSzoba);
-            this.groupBox5.Controls.Add(this.label2);
-            this.groupBox5.Controls.Add(this.txtSzobaLstSzobaQuickFind);
-            this.groupBox5.Location = new System.Drawing.Point(282, 41);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(287, 249);
-            this.groupBox5.TabIndex = 43;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "groupBox5";
+            this.gpbSzoba.Controls.Add(this.lstSzoba);
+            this.gpbSzoba.Controls.Add(this.label2);
+            this.gpbSzoba.Controls.Add(this.txtSzobaLstSzobaQuickFind);
+            this.gpbSzoba.Location = new System.Drawing.Point(335, 29);
+            this.gpbSzoba.Name = "gpbSzoba";
+            this.gpbSzoba.Size = new System.Drawing.Size(557, 249);
+            this.gpbSzoba.TabIndex = 43;
+            this.gpbSzoba.TabStop = false;
+            this.gpbSzoba.Text = "Szobák";
             // 
             // button3
             // 
@@ -222,6 +224,36 @@
             this.groupIdopont.TabIndex = 33;
             this.groupIdopont.TabStop = false;
             this.groupIdopont.Text = "Iőpont";
+            // 
+            // groupBoxElsoNap
+            // 
+            this.groupBoxElsoNap.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBoxElsoNap.Controls.Add(this.label7);
+            this.groupBoxElsoNap.Controls.Add(this.dtpElsoNap);
+            this.groupBoxElsoNap.Location = new System.Drawing.Point(11, 19);
+            this.groupBoxElsoNap.Name = "groupBoxElsoNap";
+            this.groupBoxElsoNap.Size = new System.Drawing.Size(200, 50);
+            this.groupBoxElsoNap.TabIndex = 47;
+            this.groupBoxElsoNap.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 13);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "Első nap:";
+            // 
+            // dtpElsoNap
+            // 
+            this.dtpElsoNap.CustomFormat = "yyyy MM. dd.";
+            this.dtpElsoNap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpElsoNap.Location = new System.Drawing.Point(76, 10);
+            this.dtpElsoNap.Name = "dtpElsoNap";
+            this.dtpElsoNap.Size = new System.Drawing.Size(84, 20);
+            this.dtpElsoNap.TabIndex = 25;
+            this.dtpElsoNap.ValueChanged += new System.EventHandler(this.dtpElsoNap_ValueChanged);
             // 
             // groupBoxUtolsoNap
             // 
@@ -321,32 +353,30 @@
             this.nudFoglalasGyermekek.Size = new System.Drawing.Size(61, 20);
             this.nudFoglalasGyermekek.TabIndex = 32;
             // 
-            // groupBox2
+            // gpbFoglalas
             // 
-            this.groupBox2.Controls.Add(this.groupBox6);
-            this.groupBox2.Controls.Add(this.groupBox5);
-            this.groupBox2.Controls.Add(this.groupVendegek);
-            this.groupBox2.Controls.Add(this.groupIdopont);
-            this.groupBox2.Controls.Add(this.btnSzobaKereses);
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(861, 371);
-            this.groupBox2.TabIndex = 41;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.gpbFoglalas.Controls.Add(this.groupVendegek);
+            this.gpbFoglalas.Controls.Add(this.groupIdopont);
+            this.gpbFoglalas.Controls.Add(this.btnSzobaKereses);
+            this.gpbFoglalas.Location = new System.Drawing.Point(12, 12);
+            this.gpbFoglalas.Name = "gpbFoglalas";
+            this.gpbFoglalas.Size = new System.Drawing.Size(271, 371);
+            this.gpbFoglalas.TabIndex = 41;
+            this.gpbFoglalas.TabStop = false;
+            this.gpbFoglalas.Text = "Foglalás";
             // 
-            // groupBox6
+            // gpbVendeg
             // 
-            this.groupBox6.Controls.Add(this.label10);
-            this.groupBox6.Controls.Add(this.listBox2);
-            this.groupBox6.Controls.Add(this.textBox2);
-            this.groupBox6.Controls.Add(this.button4);
-            this.groupBox6.Location = new System.Drawing.Point(569, 36);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(292, 248);
-            this.groupBox6.TabIndex = 41;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "groupBox6";
+            this.gpbVendeg.Controls.Add(this.label10);
+            this.gpbVendeg.Controls.Add(this.listBox2);
+            this.gpbVendeg.Controls.Add(this.textBox2);
+            this.gpbVendeg.Controls.Add(this.button4);
+            this.gpbVendeg.Location = new System.Drawing.Point(335, 289);
+            this.gpbVendeg.Name = "gpbVendeg";
+            this.gpbVendeg.Size = new System.Drawing.Size(292, 248);
+            this.gpbVendeg.TabIndex = 41;
+            this.gpbVendeg.TabStop = false;
+            this.gpbVendeg.Text = "Vendégek";
             // 
             // label10
             // 
@@ -391,42 +421,14 @@
             this.btnSzobaKereses.UseVisualStyleBackColor = true;
             this.btnSzobaKereses.Click += new System.EventHandler(this.btnSzobaKereses_Click);
             // 
-            // groupBoxElsoNap
-            // 
-            this.groupBoxElsoNap.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBoxElsoNap.Controls.Add(this.label7);
-            this.groupBoxElsoNap.Controls.Add(this.dtpElsoNap);
-            this.groupBoxElsoNap.Location = new System.Drawing.Point(11, 19);
-            this.groupBoxElsoNap.Name = "groupBoxElsoNap";
-            this.groupBoxElsoNap.Size = new System.Drawing.Size(200, 50);
-            this.groupBoxElsoNap.TabIndex = 47;
-            this.groupBoxElsoNap.TabStop = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 10);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 13);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "Első nap:";
-            // 
-            // dtpElsoNap
-            // 
-            this.dtpElsoNap.CustomFormat = "yyyy MM. dd.";
-            this.dtpElsoNap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpElsoNap.Location = new System.Drawing.Point(76, 10);
-            this.dtpElsoNap.Name = "dtpElsoNap";
-            this.dtpElsoNap.Size = new System.Drawing.Size(84, 20);
-            this.dtpElsoNap.TabIndex = 25;
-            this.dtpElsoNap.ValueChanged += new System.EventHandler(this.dtpElsoNap_ValueChanged);
-            // 
             // FrmFoglalasManagmentUjFoglalas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 654);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gpbVendeg);
+            this.Controls.Add(this.gpbFoglalas);
+            this.Controls.Add(this.gpbSzoba);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.nudSzobaFelnotthely);
@@ -439,20 +441,20 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmFoglalasManagmentUjFoglalas";
             ((System.ComponentModel.ISupportInitialize)(this.nudSzobaFelnotthely)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.gpbSzoba.ResumeLayout(false);
+            this.gpbSzoba.PerformLayout();
             this.groupIdopont.ResumeLayout(false);
+            this.groupBoxElsoNap.ResumeLayout(false);
+            this.groupBoxElsoNap.PerformLayout();
             this.groupBoxUtolsoNap.ResumeLayout(false);
             this.groupBoxUtolsoNap.PerformLayout();
             this.groupVendegek.ResumeLayout(false);
             this.groupVendegek.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudFoglalasFelnottek)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudFoglalasGyermekek)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            this.groupBoxElsoNap.ResumeLayout(false);
-            this.groupBoxElsoNap.PerformLayout();
+            this.gpbFoglalas.ResumeLayout(false);
+            this.gpbVendeg.ResumeLayout(false);
+            this.gpbVendeg.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -471,7 +473,7 @@
         private System.Windows.Forms.TextBox txtSzobaLstSzobaQuickFind;
         private System.Windows.Forms.ListBox lstSzoba;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox gpbSzoba;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupIdopont;
         private System.Windows.Forms.GroupBox groupVendegek;
@@ -479,8 +481,8 @@
         private System.Windows.Forms.NumericUpDown nudFoglalasFelnottek;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown nudFoglalasGyermekek;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox gpbFoglalas;
+        private System.Windows.Forms.GroupBox gpbVendeg;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.TextBox textBox2;

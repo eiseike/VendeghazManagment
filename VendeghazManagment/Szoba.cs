@@ -15,6 +15,26 @@ namespace VendeghazManagment
         private int _gyermekHely;
         private bool _kiadhato;
         private string _megjegyzes;
+        private int _id;
+
+        public override string ToString()
+        {
+            return Nev + " (" + Enumok.Bovebben(Emelet) + ")";
+        }
+
+
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+
+            set
+            {
+                _id = value;
+            }
+        }
 
         public string Nev
         {
@@ -94,7 +114,9 @@ namespace VendeghazManagment
             }
         }
 
-        public Szoba(string nev, SzobaEmelet emelet, int felnottHely, int gyermekHely, bool kiadhato, string megjegyzes)
+        
+
+        public Szoba(string nev, SzobaEmelet emelet, int felnottHely, int gyermekHely, bool kiadhato, string megjegyzes, int id = 0)
         {
             Nev = nev;
             Emelet = emelet;
@@ -102,6 +124,7 @@ namespace VendeghazManagment
             Gyermek_hely = gyermekHely;
             Kiadhato = kiadhato;
             Megjegyzes = megjegyzes;
+            Id = id;
         }
     }
 }

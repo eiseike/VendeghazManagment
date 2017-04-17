@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,6 +16,7 @@ namespace VendeghazManagment
     public partial class FrmFoglalasManagmentUjFoglalas : Form
     {
         private int maxEnnyiSzemely;
+        private List<Szoba> szobak_filter_datasource;
 
         public FrmFoglalasManagmentUjFoglalas()
         {
@@ -22,7 +24,19 @@ namespace VendeghazManagment
             this.maxEnnyiSzemely = 5; //TODO: amennyi max a felnött hely initializálásnál ki kell nyerni
             nudFoglalasFelnottek.Maximum = this.maxEnnyiSzemely;
             nudFoglalasGyermekek.Maximum = this.maxEnnyiSzemely;
+            PanelSwitch(gpbSzoba, false);
+            PanelSwitch(gpbVendeg, false);
+
         }
+
+        private void PanelSwitch(Control control, bool enabled)
+        {
+            foreach (Control ctrl in control.Controls)
+            {
+                ctrl.Enabled = enabled;
+            } 
+        }
+
         private void dtpElsoNapEllenorzesDatumTol()
         {
             groupBoxElsoNap.BackColor = EllenorzesDatumok_Tol()
@@ -99,25 +113,56 @@ namespace VendeghazManagment
             }
             else
             {
-                List<Szoba> szabad_szobak = SzabadSzobaKeresese((int)nudFoglalasFelnottek.Value, (int)nudFoglalasGyermekek.Value,
+                List<Szoba> szabad_szobak = DBFeladatok.SzabadSzobaKeresese((int)nudFoglalasFelnottek.Value, (int)nudFoglalasGyermekek.Value,
                     dtpElsoNap.Value, dtpUtolsoNap.Value);
-                foreach (Szoba szoba in szabad_szobak)
+                if (szabad_szobak.Count > 0)
                 {
-                    MessageBox.Show("szabad szoba" + szoba.ToString());
-                }
+                    PanelSwitch(gpbSzoba, true);
+                    txtSzobaLstSzobaQuickFind.Text = "";
+                    szobak_filter_datasource = szabad_szobak;
+                    lstSzoba.DataSource = szobak_filter_datasource;
+
+                } 
             }
         }
 
-       
-
-
-        private List<Szoba> SzabadSzobaKeresese(int felnott, int gyermek, DateTime tol, DateTime ig)
+        private void txtSzobaLstSzobaQuickFind_TextChanged(object sender, EventArgs e)
         {
-            List<Szoba> szobak =  new List<Szoba>();
-            szobak.Add(new Szoba("teszt nev", SzobaEmelet.Első_emelet, 3, 2, true, "Alles OK!"));
-            return szobak;
+            refreshLstSzoba();
         }
 
+        private void refreshLstSzoba()
+        {
+            lstSzoba.DataSource = null;
+            List<Szoba> szurtList = new List<Szoba>();
+            foreach (Szoba szoba in szobak_filter_datasource)
+            {
+                try
+                {
+                    if (!Regex.IsMatch(Regex.Escape(szoba.ToString()), txtSzobaLstSzobaQuickFind.Text.Trim(),
+                        RegexOptions.IgnoreCase))
+                    {
+                        continue;
+                    }
+                }
+                catch (Exception)
+                {
+                }
+                if (szoba.Id > 0)
+                {
+                    szurtList.Add(szoba);
+                }
+            }
 
+            lstSzoba.DataSource = szurtList;
+        }
+
+        private void lstSzoba_DoubleClick(object sender, EventArgs e)
+        {
+            if (lstSzoba.SelectedIndex > -1)
+            {
+                MessageBox.Show((lstSzoba.SelectedItem).ToString());
+            }
+        }
     }
 }

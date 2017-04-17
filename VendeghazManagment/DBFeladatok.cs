@@ -284,5 +284,30 @@ namespace VendeghazManagment
             }
             return true;
         }
+
+
+        public static List<Szoba> SzabadSzobaKeresese(int felnott, int gyermek, DateTime tol, DateTime ig)
+        {
+            SqlDataReader reader = null;
+            List<Szoba> szobak = new List<Szoba>();
+            var cmd = new SqlCommand("SELECT id, nev, emelet, felnott_hely, gyermek_hely, kiadhato, megjegyzes FROM szoba", connection);
+            EasyLog.LogMessageToFile(cmd.CommandText);
+
+            using (reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    var nev = reader["nev"].ToString();
+                    var emelet = (SzobaEmelet)int.Parse(reader["emelet"].ToString());
+                    var felnott_hely = int.Parse(reader["felnott_hely"].ToString());
+                    var gyerek = int.Parse(reader["gyermek_hely"].ToString());
+                    var kiadhato = (bool)reader["kiadhato"];
+                    var megjegyzes = reader["megjegyzes"].ToString();
+                    var id = int.Parse(reader["id"].ToString());
+                    szobak.Add(new Szoba(nev, emelet, felnott_hely, gyerek, kiadhato, megjegyzes, id));
+                }
+            }
+            return szobak;
+        }
     }
 }
