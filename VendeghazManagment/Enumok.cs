@@ -17,26 +17,32 @@ namespace VendeghazManagment
         Első_emelet,
         [Description("Második emelet")]
         Második_emelet,
-        Tetőtér
+        Tetőtér,
     }
 
     public enum VendegNem
     {
         Férfi,
-        Nő
+        Nő,
+    }
+
+    public enum VendegTipus
+    {
+        Felnőtt,
+        Gyermek,
     }
 
     public enum VendegOkmanyTipus
     {
         Személyi,
-        Útlevél
+        Útlevél,
     }
 
 
     public enum IgenNem
     {
         Nem,
-        Igen
+        Igen,
     }
     static class Enumok
     {

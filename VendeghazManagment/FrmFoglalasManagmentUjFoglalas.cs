@@ -21,9 +21,11 @@ namespace VendeghazManagment
         public FrmFoglalasManagmentUjFoglalas()
         {
             InitializeComponent();
-            this.maxEnnyiSzemely = 5; //TODO: amennyi max a felnött hely initializálásnál ki kell nyerni
-            nudFoglalasFelnottek.Maximum = this.maxEnnyiSzemely;
-            nudFoglalasGyermekek.Maximum = this.maxEnnyiSzemely;
+            int maxFelnott = DBFeladatok.MaxSzemelyekSzobakban(VendegTipus.Felnőtt);
+            int maxGyermek = DBFeladatok.MaxSzemelyekSzobakban(VendegTipus.Gyermek);
+            this.maxEnnyiSzemely = maxFelnott + maxGyermek;
+            nudFoglalasFelnottek.Maximum = maxFelnott;
+            nudFoglalasGyermekek.Maximum = maxGyermek + maxFelnott;
             PanelSwitch(gpbSzoba, false);
             PanelSwitch(gpbVendeg, false);
 
@@ -156,7 +158,7 @@ namespace VendeghazManagment
 
             lstSzoba.DataSource = szurtList;
         }
-
+ 
         private void lstSzoba_DoubleClick(object sender, EventArgs e)
         {
             if (lstSzoba.SelectedIndex > -1)

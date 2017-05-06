@@ -290,24 +290,64 @@ namespace VendeghazManagment
         {
             SqlDataReader reader = null;
             List<Szoba> szobak = new List<Szoba>();
-            var cmd = new SqlCommand("SELECT id, nev, emelet, felnott_hely, gyermek_hely, kiadhato, megjegyzes FROM szoba", connection);
-            EasyLog.LogMessageToFile(cmd.CommandText);
+            //TODO: foglalasok ellenorzese datumra!
+            const string sql = "SELECT id, nev, emelet, felnott_hely, gyermek_hely, kiadhato, megjegyzes FROM szoba WHERE ";
+            using (SqlCommand cmd = new SqlCommand(sql, connection))
+            {
+                var salaryParam = new SqlParameter("salary", SqlDbType.Money);
+                salaryParam.Value = 1;
 
+                cmd.Parameters.Add(salaryParam);
+                var results = cmd.ExecuteReader();
+                using (reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var nev = reader["nev"].ToString();
+                        var emelet = (SzobaEmelet)int.Parse(reader["emelet"].ToString());
+                        var felnottHely = int.Parse(reader["felnott_hely"].ToString());
+                        var gyerek = int.Parse(reader["gyermek_hely"].ToString());
+                        var kiadhato = (bool)reader["kiadhato"];
+                        var megjegyzes = reader["megjegyzes"].ToString();
+                        var id = int.Parse(reader["id"].ToString());
+                        szobak.Add(new Szoba(nev, emelet, felnottHely, gyerek, kiadhato, megjegyzes, id));
+                    }
+                }
+                EasyLog.LogMessageToFile(cmd.CommandText);
+            }
+
+
+
+
+           
+            return szobak;
+        }
+
+
+        public static int MaxSzemelyekSzobakban(VendegTipus vt)
+        {
+            SqlDataReader reader;
+            SqlCommand cmd;
+            int maxHely = 0;
+
+            if (vt == VendegTipus.Felnőtt)
+            {
+                cmd = new SqlCommand("Select MAX(felnott_hely) as max_hely from szoba;", connection);
+            }
+            else
+            {
+                cmd = new SqlCommand("Select MAX(gyermek_hely) as max_hely from szoba;", connection);
+            }
+            EasyLog.LogMessageToFile(cmd.CommandText);
+  
             using (reader = cmd.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    var nev = reader["nev"].ToString();
-                    var emelet = (SzobaEmelet)int.Parse(reader["emelet"].ToString());
-                    var felnott_hely = int.Parse(reader["felnott_hely"].ToString());
-                    var gyerek = int.Parse(reader["gyermek_hely"].ToString());
-                    var kiadhato = (bool)reader["kiadhato"];
-                    var megjegyzes = reader["megjegyzes"].ToString();
-                    var id = int.Parse(reader["id"].ToString());
-                    szobak.Add(new Szoba(nev, emelet, felnott_hely, gyerek, kiadhato, megjegyzes, id));
+                    maxHely = int.Parse(reader["max_hely"].ToString());
                 }
             }
-            return szobak;
+            return maxHely;
         }
     }
 }
