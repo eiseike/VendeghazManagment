@@ -218,17 +218,15 @@ namespace VendeghazManagment
 
                 var nev = reader["nev"].ToString();
                 var emelet = (SzobaEmelet) int.Parse(reader["emelet"].ToString());
-                var felnott_hely = int.Parse(reader["felnott_hely"].ToString());
+                var felnottHely = int.Parse(reader["felnott_hely"].ToString());
                 var gyerek = int.Parse(reader["gyermek_hely"].ToString());
                 var kiadhato = (bool)reader["kiadhato"];
                 var megjegyzes = reader["megjegyzes"].ToString();
-                var lofasy = reader["kiadhato"].ToString();
-
-
+               
                 return new Szoba(
                   nev,
                   emelet,
-                  felnott_hely,
+                  felnottHely,
                   gyerek,
                   kiadhato,
                   megjegyzes
@@ -238,7 +236,7 @@ namespace VendeghazManagment
             }
             finally
             {
-                reader.Close();
+                reader?.Close();
             }
         }
 
@@ -286,19 +284,27 @@ namespace VendeghazManagment
         }
 
 
-        public static List<Szoba> SzabadSzobaKeresese(int felnott, int gyermek, DateTime tol, DateTime ig)
+        public static List<Szoba> SzabadSzobaKeresese(int felnottek, int gyermekek, DateTime tol, DateTime ig)
         {
             SqlDataReader reader = null;
             List<Szoba> szobak = new List<Szoba>();
             //TODO: foglalasok ellenorzese datumra!
-            const string sql = "SELECT id, nev, emelet, felnott_hely, gyermek_hely, kiadhato, megjegyzes FROM szoba WHERE ";
+            const string sql = "SELECT DISTINCT id, nev, emelet, felnott_hely, gyermek_hely, kiadhato, megjegyzes FROM szoba WHERE szoba.kiadhato = 1 AND szoba.felnott_hely >= @felnottek AND szoba.felnott_hely - @felnottek + szoba.gyermek_hely >= @gyermekek ";
+            //befér mindenki = fh >= f && gyh + fh - f >= gy
+
             using (SqlCommand cmd = new SqlCommand(sql, connection))
             {
-                var salaryParam = new SqlParameter("salary", SqlDbType.Money);
-                salaryParam.Value = 1;
+                var felnottekParameter = new SqlParameter("felnottek", SqlDbType.Int);
+                var gyermekekParameter = new SqlParameter("gyermekek", SqlDbType.Int);
 
-                cmd.Parameters.Add(salaryParam);
-                var results = cmd.ExecuteReader();
+                felnottekParameter.Value = felnottek;
+                gyermekekParameter.Value = gyermekek;
+
+                cmd.Parameters.Add(felnottekParameter);
+                cmd.Parameters.Add(gyermekekParameter);
+
+                MessageBox.Show(cmd.CommandText);
+
                 using (reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -316,10 +322,6 @@ namespace VendeghazManagment
                 EasyLog.LogMessageToFile(cmd.CommandText);
             }
 
-
-
-
-           
             return szobak;
         }
 

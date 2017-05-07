@@ -28,7 +28,7 @@ namespace VendeghazManagment
             nudFoglalasGyermekek.Maximum = maxGyermek + maxFelnott;
             PanelSwitch(gpbSzoba, false);
             PanelSwitch(gpbVendeg, false);
-
+            btnFoglalasVeglegesitese.Enabled = false;
         }
 
         private void PanelSwitch(Control control, bool enabled)
@@ -165,6 +165,16 @@ namespace VendeghazManagment
             {
                 MessageBox.Show((lstSzoba.SelectedItem).ToString());
             }
+        }
+
+        private void btnFoglalasVeglegesitese_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(lstSzoba.SelectedIndex.ToString());
+        }
+
+        private void lstSzoba_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnFoglalasVeglegesitese.Enabled = lstSzoba.SelectedIndex != -1;
         }
     }
 }

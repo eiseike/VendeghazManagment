@@ -31,7 +31,7 @@
             this.nudSzobaFelnotthely = new System.Windows.Forms.NumericUpDown();
             this.cboSzobaKiadhato = new System.Windows.Forms.ComboBox();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnOK = new System.Windows.Forms.Button();
+            this.btnFoglalasVeglegesitese = new System.Windows.Forms.Button();
             this.txtSzobaNev = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,12 +55,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.nudFoglalasGyermekek = new System.Windows.Forms.NumericUpDown();
             this.gpbFoglalas = new System.Windows.Forms.GroupBox();
+            this.btnSzobaKereses = new System.Windows.Forms.Button();
             this.gpbVendeg = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.lstVendegekKereso = new System.Windows.Forms.ListBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.btnSzobaKereses = new System.Windows.Forms.Button();
+            this.lstVendegekSzobahoz = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudSzobaFelnotthely)).BeginInit();
             this.gpbSzoba.SuspendLayout();
             this.groupIdopont.SuspendLayout();
@@ -114,15 +115,15 @@
             this.btnCancel.Text = "Mégsem";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // btnOK
+            // btnFoglalasVeglegesitese
             // 
-            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(980, 301);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 29;
-            this.btnOK.Text = "Kész";
-            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnFoglalasVeglegesitese.Location = new System.Drawing.Point(945, 289);
+            this.btnFoglalasVeglegesitese.Name = "btnFoglalasVeglegesitese";
+            this.btnFoglalasVeglegesitese.Size = new System.Drawing.Size(136, 23);
+            this.btnFoglalasVeglegesitese.TabIndex = 29;
+            this.btnFoglalasVeglegesitese.Text = "Foglalás véglegesítése";
+            this.btnFoglalasVeglegesitese.UseVisualStyleBackColor = true;
+            this.btnFoglalasVeglegesitese.Click += new System.EventHandler(this.btnFoglalasVeglegesitese_Click);
             // 
             // txtSzobaNev
             // 
@@ -182,6 +183,7 @@
             this.lstSzoba.Name = "lstSzoba";
             this.lstSzoba.Size = new System.Drawing.Size(474, 95);
             this.lstSzoba.TabIndex = 35;
+            this.lstSzoba.SelectedIndexChanged += new System.EventHandler(this.lstSzoba_SelectedIndexChanged);
             this.lstSzoba.DoubleClick += new System.EventHandler(this.lstSzoba_DoubleClick);
             // 
             // button2
@@ -365,15 +367,26 @@
             this.gpbFoglalas.TabStop = false;
             this.gpbFoglalas.Text = "Foglalás";
             // 
+            // btnSzobaKereses
+            // 
+            this.btnSzobaKereses.Location = new System.Drawing.Point(22, 333);
+            this.btnSzobaKereses.Name = "btnSzobaKereses";
+            this.btnSzobaKereses.Size = new System.Drawing.Size(179, 23);
+            this.btnSzobaKereses.TabIndex = 29;
+            this.btnSzobaKereses.Text = "Szoba keresése";
+            this.btnSzobaKereses.UseVisualStyleBackColor = true;
+            this.btnSzobaKereses.Click += new System.EventHandler(this.btnSzobaKereses_Click);
+            // 
             // gpbVendeg
             // 
+            this.gpbVendeg.Controls.Add(this.lstVendegekSzobahoz);
             this.gpbVendeg.Controls.Add(this.label10);
-            this.gpbVendeg.Controls.Add(this.listBox2);
+            this.gpbVendeg.Controls.Add(this.lstVendegekKereso);
             this.gpbVendeg.Controls.Add(this.textBox2);
             this.gpbVendeg.Controls.Add(this.button4);
             this.gpbVendeg.Location = new System.Drawing.Point(335, 289);
             this.gpbVendeg.Name = "gpbVendeg";
-            this.gpbVendeg.Size = new System.Drawing.Size(292, 248);
+            this.gpbVendeg.Size = new System.Drawing.Size(292, 294);
             this.gpbVendeg.TabIndex = 41;
             this.gpbVendeg.TabStop = false;
             this.gpbVendeg.Text = "Vendégek";
@@ -387,13 +400,13 @@
             this.label10.TabIndex = 24;
             this.label10.Text = "Vendég:";
             // 
-            // listBox2
+            // lstVendegekKereso
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(64, 39);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(120, 95);
-            this.listBox2.TabIndex = 35;
+            this.lstVendegekKereso.FormattingEnabled = true;
+            this.lstVendegekKereso.Location = new System.Drawing.Point(64, 39);
+            this.lstVendegekKereso.Name = "lstVendegekKereso";
+            this.lstVendegekKereso.Size = new System.Drawing.Size(120, 95);
+            this.lstVendegekKereso.TabIndex = 35;
             // 
             // textBox2
             // 
@@ -411,15 +424,13 @@
             this.button4.Text = "Vendég +";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // btnSzobaKereses
+            // lstVendegekSzobahoz
             // 
-            this.btnSzobaKereses.Location = new System.Drawing.Point(22, 333);
-            this.btnSzobaKereses.Name = "btnSzobaKereses";
-            this.btnSzobaKereses.Size = new System.Drawing.Size(179, 23);
-            this.btnSzobaKereses.TabIndex = 29;
-            this.btnSzobaKereses.Text = "Szoba keresése";
-            this.btnSzobaKereses.UseVisualStyleBackColor = true;
-            this.btnSzobaKereses.Click += new System.EventHandler(this.btnSzobaKereses_Click);
+            this.lstVendegekSzobahoz.FormattingEnabled = true;
+            this.lstVendegekSzobahoz.Location = new System.Drawing.Point(64, 153);
+            this.lstVendegekSzobahoz.Name = "lstVendegekSzobahoz";
+            this.lstVendegekSzobahoz.Size = new System.Drawing.Size(120, 95);
+            this.lstVendegekSzobahoz.TabIndex = 38;
             // 
             // FrmFoglalasManagmentUjFoglalas
             // 
@@ -434,7 +445,7 @@
             this.Controls.Add(this.nudSzobaFelnotthely);
             this.Controls.Add(this.cboSzobaKiadhato);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnOK);
+            this.Controls.Add(this.btnFoglalasVeglegesitese);
             this.Controls.Add(this.txtSzobaNev);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -464,7 +475,7 @@
         private System.Windows.Forms.NumericUpDown nudSzobaFelnotthely;
         private System.Windows.Forms.ComboBox cboSzobaKiadhato;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.Button btnFoglalasVeglegesitese;
         private System.Windows.Forms.TextBox txtSzobaNev;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
@@ -484,7 +495,7 @@
         private System.Windows.Forms.GroupBox gpbFoglalas;
         private System.Windows.Forms.GroupBox gpbVendeg;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox lstVendegekKereso;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBoxUtolsoNap;
@@ -494,5 +505,6 @@
         private System.Windows.Forms.GroupBox groupBoxElsoNap;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtpElsoNap;
+        private System.Windows.Forms.ListBox lstVendegekSzobahoz;
     }
 }
